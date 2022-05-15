@@ -1,0 +1,129 @@
+@use "../abstracts/_variables"as *;
+
+// <---------------------------- MEDIA QUERIES ------------------------------->#
+@mixin mq($breakpoint) {
+    @if $breakpoint==phone {
+        @media only screen and (max-width: $for-phone-only) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==tab-port-only {
+        @media only screen and (min-width: $for-tablet-portrait-up) and (max-width: $for-tablet-portrait-only) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==tab-port-up {
+        @media only screen and (min-width: $for-tablet-portrait-up) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==tab-land-only {
+        @media only screen and (min-width: $for-tablet-landscape-only) and (max-width: $for-tablet-landscape-up) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==tab-land-up {
+        @media only screen and (min-width: $for-tablet-landscape-only) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==desktop-only {
+        @media only screen and (min-width: $for-desktop-up) and (max-width: $for-desktop-only) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==desktop-up {
+        @media only screen and (min-width: $for-desktop-up) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==big-desktop {
+        @media only screen and (min-width: $for-big-desktop-up) {
+            @content;
+        }
+    }
+}
+
+// <---------------------------- WHITE SPACING ------------------------------->#
+@mixin spacing($s-size,
+    $s-value,
+    $st,
+    $st-short,
+    $direction: "",
+    $d-value: ""
+
+) {
+    .#{$st-short}#{$direction}-#{$s-size} {
+        @if ($direction=="") {
+            #{$st}: $s-value;
+        }
+
+        @else {
+            #{$st}-#{$d-value}: $s-value;
+        }
+    }
+}
+
+// <----------------------------- FLEX MODEL -------------------------------->#
+@mixin flex-model($direction: column,
+    $jc: stretch,
+    $ai: stretch,
+    $wrap: wrap,
+    $gap: 0) {
+    $distributed-alignment: (around, between, evenly);
+
+    @each $d-align in $distributed-alignment {
+        @if $jc==$d-align {
+            $jc: space-#{$d-align};
+        }
+
+        @else if $ai==$d-align {
+            $ai: space-#{$d-align};
+        }
+    }
+
+    display: flex;
+    flex-direction: $direction;
+    justify-content: var(--justify-content, $jc);
+    align-items: var(--align-items, $ai);
+    flex-wrap: $wrap;
+    gap: var(--gap, $gap);
+}
+
+// <--------------------------- LAYOUT ALIGNMENT ------------------------------>#
+@mixin layout-alignment($selector,
+    $value,
+    $selector-1: j,
+    $property-variation: content) {
+    $property: justify;
+    $selector-2: c;
+
+    // To convert selector-2 default value to i, to create utility classes for *i-*: *;
+    @if $property-variation==items {
+        $selector-2: i;
+    }
+
+    // To convert selector-1 default value to align, to create utility classes for align-*-*: *;
+    @if $selector-1==a {
+        $property: align;
+    }
+
+    @if $property-variation==self and ($selector==start or $selector==center or $selector==end) {
+        .#{$selector-1}s-#{$selector} {
+            #{$property}-#{$property-variation}: #{$value};
+        }
+    }
+
+    @else if $property-variation !=self {
+        .#{$selector-1}#{$selector-2}-#{$selector} {
+            --#{$property}-#{$property-variation}: #{$value};
+        }
+    }
+}

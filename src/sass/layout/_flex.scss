@@ -1,0 +1,20 @@
+@use "../abstracts"as *;
+
+.flex {
+    @include flex-model();
+
+    @include mq(tab-port-up) {
+        flex-direction: row;
+        --gap: 2%;
+
+        &>* {
+            flex-basis: 49%;
+        }
+    }
+
+    @include mq(desktop-up) {
+        &>* {
+            flex-basis: 32%;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use "../abstracts"as *;
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+// <---------------------------- WHITE SPACING ------------------------------->#
+@each $s-size,
+$s-value in $spacing-sizes {
+    @include spacing($s-size, $s-value, margin, m);
+    @include spacing($s-size, $s-value, padding, p);
+
+    @each $direction,
+    $d-value in $directions {
+        @include spacing($s-size, $s-value, margin, m, $direction, $d-value);
+        @include spacing($s-size, $s-value, padding, p, $direction, $d-value);
+    }
+}
+
+// <--------------------------- LAYOUT ALIGNMENT ------------------------------>#
+@each $selector,
+$value in $fg-positions {
+    //  For justify properties START
+    @include layout-alignment($selector, $value);
+    @include layout-alignment($selector, $value, $property-variation: items);
+    @include layout-alignment($selector, $value, $property-variation: self);
+
+    //  For align properties START
+    @include layout-alignment($selector, $value, a);
+    @include layout-alignment($selector, $value, a, $property-variation: items);
+    @include layout-alignment($selector, $value, a, $property-variation: self);
+}

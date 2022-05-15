@@ -1,0 +1,104 @@
+@use '../abstracts/mixins' as *;
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+
+    // @media (min-width: 50.625em) {
+    //     padding: 0;
+    // }
+    @include mq(desktop-up){
+        padding: 0;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+        // flex-direction: column;
+        // align-items: flex-start;
+    // @media (max-width: 50.625em) {
+    //     flex-direction: column;
+    //     align-items: flex-start;
+    // }
+    // @include mq(desktop-up) {
+    //     flex-direction: column;
+    //     align-items: flex-start;
+    // }
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-links {
+    height: 100%;
+
+    @media (max-width: 75em) {
+        display: none;
+        width: 100%;
+
+        &.active {
+            display: flex;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    flex-direction: column;
+    @include mq(desktop-up) {
+        flex-direction: row;
+    }
+
+    &__item {
+        list-style: none;
+        text-align: center;
+        &:hover {
+            background-color: #555;
+        }
+    }
+
+    &__link {
+        color: white;
+        display: block;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+
+        @include mq(desktop-up) {
+            padding: 1rem;
+        }
+    }
+}
+
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 12px;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+
+    @include mq(desktop-up) {
+        display: none;
+    }
+
+    & .bar {
+        background-color: white;
+        border-radius: 10px;
+        height: 3px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,54 @@
+:root {
+    --spacer: 1rem;
+}
+
+// <----------------------------- FONT SIZE  -------------------------------->#
+$font-sizes: (regular: (300: .875rem,
+        400: 1.3125rem,
+        500: 1.5rem,
+        600: 2rem),
+    medium: (500: 2rem,
+        600: 2.5rem),
+    large: (500: 2.5rem,
+        600: 3rem),
+);
+
+// <---------------------------- MEDIA QUERIES ------------------------------->#
+// NOTE:  If you start with mobile first then remove $for-phone-only variable and phone condition from media query mixin, and change the first condition from @else if to @if.
+$for-phone-only: 37.4375em; //  599px
+
+$for-tablet-portrait-up: 37.5em; //  600px
+$for-tablet-portrait-only: 56.1875em; //  899px
+$for-tablet-landscape-only: 56.25em; //  900px
+$for-tablet-landscape-up: 74.9375em; //  1199px
+
+// NOTE:  If you start with desktop first then remove $for-desktop-up variable and desktop-up condition from media query mixin.
+$for-desktop-up: 75em; //  1200px
+
+// If you have no intention to develop site for larger desktop then remove these two variables and its condition from media query mixin.
+$for-desktop-only: 112.4375em; //  1799px
+$for-big-desktop-up: 112.5em; //  1800px
+
+// <---------------------------- WHITE SPACING ------------------------------->#
+$directions: (t: block-start,
+    b: block-end,
+    l: inline-start,
+    r: inline-end,
+    x: inline,
+    y: block);
+
+$spacing-sizes: (1: calc(var(--spacer) * 1),
+    2: calc(var(--spacer) * 2),
+    3: calc(var(--spacer) * 3),
+    4: calc(var(--spacer) * 4),
+    5: calc(var(--spacer) * 5),
+    auto: auto);
+
+// <--------------------------- LAYOUT ALIGNMENT ------------------------------>#
+$fg-positions: (around: space-around,
+    between: space-between,
+    evenly: space-evenly,
+    start: start,
+    center: center,
+    end: end,
+);

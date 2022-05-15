@@ -1,0 +1,30 @@
+footer {
+    background-color: var(--gray-light);
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social {
+    font-size: 20px;
+
+    &__item {
+        list-style: none;
+        display: inline;
+    }
+
+    &__link {
+        margin: 0 15px;
+        color: inherit;
+        text-decoration: none;
+        margin: 0 15px;
+
+        &:hover {
+            padding-bottom: 5px;
+            box-shadow: inset 0 -2px 0 0 var(--gray-dark);
+        }
+    }
+}
