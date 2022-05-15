@@ -37,7 +37,8 @@ $directions: (t: block-start,
     x: inline,
     y: block);
 
-$spacing-sizes: (1: calc(var(--spacer) * 1),
+$spacing-sizes: (0: calc(var(--spacer) * 0),
+    1: calc(var(--spacer) * 1),
     2: calc(var(--spacer) * 2),
     3: calc(var(--spacer) * 3),
     4: calc(var(--spacer) * 4),

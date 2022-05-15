@@ -2,8 +2,7 @@ const footer = document.querySelector('#footer');
 footer?.insertAdjacentHTML(
     "beforeend",
     `<div class="footer container">
-        <p>Copyright &copy; 2021-2022</p>
-        <p>Design and developed by ITS MAC</p>
+        <p class="m-0">Developed by ITS MAC</p>
         <ul class="social">
             <li class="social__item">
                 <a class="social__link" href="https://www.linkedin.com/in/itsmacr8">

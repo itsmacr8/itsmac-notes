@@ -1,0 +1,37 @@
+p {
+    margin-bottom: 1.5rem;
+}
+
+.question-section {
+    text-align: center;
+    margin: 2rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+td,
+th {
+    border: 1px solid;
+}
+
+th,
+td {
+    padding: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.responsive-table {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
