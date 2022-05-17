@@ -33,7 +33,7 @@ tr:nth-child(even) {
 
 .responsive-table {
     overflow-x: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .individual-question {
@@ -44,7 +44,34 @@ tr:nth-child(even) {
     }
 }
 
-ol.custom-list{
+ol.custom-list {
     list-style-type: decimal;
     padding-left: 1.4rem;
+}
+
+.highlight {
+    color: var(--red);
+}
+
+.optional-text {
+    color: var(--optional);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: var(--red);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & a {
+        color: var(--white);
+        text-decoration: none;
+    }
 }

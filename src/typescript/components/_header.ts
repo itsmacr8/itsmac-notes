@@ -4,23 +4,17 @@ header?.insertAdjacentHTML(
     `<nav role="navigation">
         <div class="navbar container">
             <div><a href="index.html" class="brand-title">MAC-notes</a></div>
-            <a href="#" class="toggle-button">
+            <div class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </a>
+            </div>
             <div class="navbar-links">
                 <ul class="nav">
                     <li class="nav__item">
-                        <a class="nav__link" href="index.html#first-year">First Year</a>
+                        <a class="nav__link" href="#section-b">Section B</a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link" href="index.html#second-year">Second Year</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="index.html#third-year">Third Year</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="index.html#fourth-year">Fourth Year</a>
+                        <a class="nav__link" href="#section-c">Section C</a>
                     </li>
                 </ul>
             </div>

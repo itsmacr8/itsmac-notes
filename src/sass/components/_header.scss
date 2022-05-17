@@ -5,10 +5,7 @@ header {
     color: white;
     padding: 1rem 0;
 
-    // @media (min-width: 50.625em) {
-    //     padding: 0;
-    // }
-    @include mq(desktop-up){
+    @include mq(desktop-up) {
         padding: 0;
     }
 }
@@ -18,17 +15,6 @@ header {
     justify-content: space-between;
     align-items: center;
     position: relative;
-
-        // flex-direction: column;
-        // align-items: flex-start;
-    // @media (max-width: 50.625em) {
-    //     flex-direction: column;
-    //     align-items: flex-start;
-    // }
-    // @include mq(desktop-up) {
-    //     flex-direction: column;
-    //     align-items: flex-start;
-    // }
 }
 
 .brand-title {
@@ -57,6 +43,7 @@ header {
 
     width: 100%;
     flex-direction: column;
+
     @include mq(desktop-up) {
         flex-direction: row;
     }
@@ -64,6 +51,7 @@ header {
     &__item {
         list-style: none;
         text-align: center;
+
         &:hover {
             background-color: #555;
         }

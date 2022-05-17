@@ -22,3 +22,8 @@ footer?.insertAdjacentHTML(
         </ul>
     </div>`
 );
+
+footer?.insertAdjacentHTML(
+    "beforebegin",
+    `<div class="back-to-top"><a href="#header">Top</a></div>`
+);
