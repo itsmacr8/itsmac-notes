@@ -25,5 +25,5 @@ footer?.insertAdjacentHTML(
 
 footer?.insertAdjacentHTML(
     "beforebegin",
-    `<div class="back-to-top"><a href="#header">Top</a></div>`
+    `<div class="back-to-top"><a href="#navigation">Top</a></div>`
 );

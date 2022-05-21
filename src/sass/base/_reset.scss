@@ -5,7 +5,7 @@
 }
 
 /* Set core root defaults */
-html:focus-within {
+html{
     scroll-behavior: smooth;
 }
 
@@ -58,7 +58,7 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
+    html {
         scroll-behavior: auto;
     }
 

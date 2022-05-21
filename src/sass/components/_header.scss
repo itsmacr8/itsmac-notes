@@ -1,10 +1,9 @@
 @use '../abstracts/mixins' as *;
 
-header {
+.navigation {
     background-color: #333;
     color: white;
-    padding: 1rem 0;
-
+    padding-block: 1rem;
     @include mq(desktop-up) {
         padding: 0;
     }
@@ -38,11 +37,9 @@ header {
 
 .nav {
     display: flex;
-    margin: 0;
-    padding: 0;
-
-    width: 100%;
     flex-direction: column;
+    margin: 0;
+    width: 100%;
 
     @include mq(desktop-up) {
         flex-direction: row;

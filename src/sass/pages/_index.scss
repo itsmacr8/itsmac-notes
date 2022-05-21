@@ -53,10 +53,15 @@ ol.custom-list {
 
 .highlight {
     color: var(--red);
+    background-color: transparent;
 }
 
 .optional-text {
     color: var(--optional);
+}
+
+.highlight-rule {
+    color: var(--highlight-rule);
 }
 
 .back-to-top {
