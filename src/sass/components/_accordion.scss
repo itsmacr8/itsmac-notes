@@ -1,0 +1,35 @@
+.accordion {
+    padding: 10px;
+    background: var(--gray-dark);
+    color: var(--white);
+    margin-block: 10px;
+    border-radius: 5px;
+
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        & h2 {
+            font-size: 1.2rem;
+            text-transform: capitalize;
+        }
+    }
+
+    &__icon {
+        cursor: pointer;
+        color: var(--white);
+        font-size: 20px;
+    }
+
+    &__body {
+        padding: 10px 20px;
+        animation: accordion-animation .5s ease-in-out;
+        display: none;
+    }
+}
+
+.js-accordion__body--active {
+    display: block;
+}

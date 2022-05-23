@@ -13,43 +13,56 @@
         crossorigin="anonymous" />
 </head>
 
-<body>
+<body class="homepage-layout">
     <nav id="navigation" class="navigation" role="navigation"></nav>
     <header class="container my-2">
-        <h1 class="text-center">Welcome to ITS MAC Notes.</h1>
+        <h1 class="text-center">ITS MAC Notes.</h1>
     </header>
     <main class="container">
-        <div>
-            <h2 id="first-year">First year subject list</h2>
-            <ul>
-                <li>
-                    <a href="principles_of_accounting.html">Principles of Accounting</a>
-                </li>
-                <li>
-                    <a href="principles_of_finance.html">Principles of Finance</a>
-                </li>
-                <li>
-                    <a href="principles_of_management.html">Principles of Management</a>
-                </li>
-                <li>
-                    <a href="principles_of_marketing.html">Principles of Marketing</a>
-                </li>
-                <li>
-                    <a href="micro_economics.html">Micro Economics</a>
-                </li>
-                <li>
-                    <a href="history_of_the_emergence_of_independent_bangladesh.html">History of the Emergence of Independent Bangladesh</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h2 id="#second-year">Second year subject list</h2>
-        </div>
-        <div>
-            <h2 id="#third-year">Third year subject list</h2>
-        </div>
-        <div>
-            <h2 id="#fourth-year">Fourth year subject list</h2>
+        <div data-accordion="accordions">
+            <div class="accordion">
+                <div class="accordion__heading">
+                    <h2 id="first-year">First year subject list</h2>
+                    <i class="fas fa-minus accordion__icon" data-accordion-icon="1"></i>
+                    </div>
+                    <div class="accordion__body js-accordion__body--active" data-accordion-body="1">
+                        <ul class="subject-list">
+                            <li><a class="subject-name" href="principles_of_accounting.html">Principles of Accounting</a></li>
+                            <li><a class="subject-name" href="principles_of_finance.html">Principles of Finance</a></li>
+                            <li><a class="subject-name" href="principles_of_management.html">Principles of Management</a></li>
+                            <li><a class="subject-name" href="principles_of_marketing.html">Principles of Marketing</a></li>
+                            <li><a class="subject-name" href="micro_economics.html">Micro Economics</a></li>
+                            <li><a class="subject-name" href="history_of_the_emergence_of_independent_bangladesh.html">History of the Emergence of Independent Bangladesh</a></li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="accordion">
+                <div class="accordion__heading">
+                    <h2 id="#second-year">Second year subject list</h2>
+                    <i class="fas fa-plus accordion__icon" data-accordion-icon="2"></i>
+                </div>
+                <div class="accordion__body" data-accordion-body="2">
+                    <p>Coming Soon...</p>
+                </div>
+                </div>
+                <div class="accordion">
+                    <div class="accordion__heading">
+                        <h2 id="#third-year">Third year subject list</h2>
+                    <i class="fas fa-plus accordion__icon" data-accordion-icon="3"></i>
+                </div>
+                <div class="accordion__body" data-accordion-body="3">
+                    <p>Coming Soon...</p>
+                </div>
+                </div>
+                <div class="accordion">
+                    <div class="accordion__heading">
+                        <h2>Fourth year subject list</h2>
+                        <i class="fas fa-plus accordion__icon" data-accordion-icon="4"></i>
+                    </div>
+                    <div class="accordion__body" data-accordion-body="4">
+                        <p>Coming Soon...</p>
+                    </div>
+                </div>
         </div>
     </main>
     <footer id="footer"></footer>

@@ -60,7 +60,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            title: 'Welcome to ITS MAC notes',
+            title: 'Notes | ITS MAC',
             description: 'ITS MAC saves his notes here.',
             template: 'src/templates/index.html',
             publicPath: ''

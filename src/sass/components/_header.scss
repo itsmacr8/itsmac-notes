@@ -4,6 +4,7 @@
     background-color: #333;
     color: white;
     padding-block: 1rem;
+
     @include mq(desktop-up) {
         padding: 0;
     }
@@ -13,7 +14,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
 .brand-title {
@@ -27,9 +27,8 @@
 
     @media (max-width: 75em) {
         display: none;
-        width: 100%;
 
-        &.active {
+        &.js-navbar-links--active {
             display: flex;
         }
     }
@@ -72,9 +71,7 @@
     justify-content: space-between;
     width: 30px;
     height: 12px;
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
+    order: 1;
 
     @include mq(desktop-up) {
         display: none;
