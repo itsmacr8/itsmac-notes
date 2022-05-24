@@ -1,4 +1,4 @@
-@use "../abstracts/_variables"as *;
+@use "../abstracts/_variables" as *;
 
 // <---------------------------- MEDIA QUERIES ------------------------------->#
 @mixin mq($breakpoint) {
@@ -76,16 +76,17 @@
     $jc: stretch,
     $ai: stretch,
     $wrap: wrap,
-    $gap: 0) {
-    $distributed-alignment: (around, between, evenly);
+    $row-gap: 0,
+    $col-gap: 0) {
+    $distributed-alignments: (around, between, evenly);
 
-    @each $d-align in $distributed-alignment {
-        @if $jc==$d-align {
-            $jc: space-#{$d-align};
+    @each $distributed-alignment in $distributed-alignments {
+        @if $jc==$distributed-alignment {
+            $jc: space-#{$distributed-alignment};
         }
 
-        @else if $ai==$d-align {
-            $ai: space-#{$d-align};
+        @else if $ai==$distributed-alignment {
+            $ai: space-#{$distributed-alignment};
         }
     }
 
@@ -94,7 +95,8 @@
     justify-content: var(--justify-content, $jc);
     align-items: var(--align-items, $ai);
     flex-wrap: $wrap;
-    gap: var(--gap, $gap);
+    row-gap: var(--row-gap, $row-gap);
+    column-gap: var(--col-gap, $col-gap);
 }
 
 // <--------------------------- LAYOUT ALIGNMENT ------------------------------>#
@@ -121,7 +123,7 @@
         }
     }
 
-    @else if $property-variation !=self {
+    @else if $property-variation  !=self {
         .#{$selector-1}#{$selector-2}-#{$selector} {
             --#{$property}-#{$property-variation}: #{$value};
         }

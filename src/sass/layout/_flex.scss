@@ -1,11 +1,12 @@
-@use "../abstracts"as *;
+@use "../abstracts" as *;
 
 .flex {
     @include flex-model();
+    --row-gap: 1rem;
 
     @include mq(tab-port-up) {
         flex-direction: row;
-        --gap: 2%;
+        --col-gap: 2%;
 
         &>* {
             flex-basis: 49%;

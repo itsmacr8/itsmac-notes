@@ -1,0 +1,10 @@
+.flex {
+    &__item {
+        align-self: center;
+        flex-basis: 15%;
+    }
+}
+
+.custom-gap {
+    --row-gap: 1rem;
+}

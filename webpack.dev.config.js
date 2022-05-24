@@ -106,6 +106,13 @@ module.exports = {
             description: 'History of the Emergence of Independent Bangladesh notes',
             template: 'src/templates/first_year/history_of_the_emergence_of_independent_bangladesh.html',
             publicPath: ''
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'note_app.html',
+            title: 'Note App | ITS MAC',
+            description: 'A note app',
+            template: 'src/templates/note_app.html',
+            publicPath: ''
         })
     ]
 };

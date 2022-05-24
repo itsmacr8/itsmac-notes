@@ -1,4 +1,4 @@
-@use "../abstracts"as *;
+@use "../abstracts" as *;
 
 .container {
     width: 90%;
@@ -30,4 +30,8 @@ $value in $fg-positions {
     @include layout-alignment($selector, $value, a);
     @include layout-alignment($selector, $value, a, $property-variation: items);
     @include layout-alignment($selector, $value, a, $property-variation: self);
+}
+
+.flex {
+    display: flex;
 }

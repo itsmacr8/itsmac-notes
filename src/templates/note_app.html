@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+</head>
+
+<body class="page-layout">
+    <nav id="navigation" class="navigation" role="navigation"></nav>
+    <header class="container my-2">
+        <h1 class="text-center">Open Notes</h1>
+    </header>
+    <main class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <h2 class="card-title">Note title</h2>
+                    <input type="text" class="form-control" data-note="title" aria-describedby="title"
+                        placeholder="Enter title">
+                </div>
+                <div class="form-group my-2">
+                    <h2 class="card-title">Note description</h2>
+                    <textarea class="form-control" data-note="body" rows="3"></textarea>
+                </div>
+                <button class="btn btn--primary" data-note="add-button">Add Note</button>
+            </div>
+        </div>
+        <h2 class="my-2 text-center">Your Notes</h2>
+        <form data-search="form" class="flex jc-center custom-gap">
+            <input data-search="input" type="text" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn--primary flex__item">Search</button>
+        </form>
+        <div class="notes my-3 flex" data-note="container"></div>
+    </main>
+    <footer id="footer"></footer>
+</body>
+
+</html>

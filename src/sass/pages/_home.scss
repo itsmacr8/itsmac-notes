@@ -1,12 +1,3 @@
-.homepage-layout {
-    display: grid;
-    grid-template-rows: max-content max-content auto max-content;
-
-    & .back-to-top {
-        display: none;
-    }
-}
-
 .subject-name {
     text-decoration: none;
     color: var(--white);

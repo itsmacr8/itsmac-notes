@@ -1,0 +1,11 @@
+@use "../abstracts/index" as *;
+
+.notes {
+    @include mq(tab-port-up) {
+        --align-items: flex-start;
+    }
+}
+
+.js-note-hidden {
+    display: none;
+}

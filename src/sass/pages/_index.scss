@@ -1,5 +1,15 @@
 @forward './accounting';
 @forward './home';
+@forward './note';
+
+.page-layout {
+    display: grid;
+    grid-template-rows: max-content max-content auto max-content;
+
+    & .back-to-top {
+        display: none;
+    }
+}
 
 p {
     margin-bottom: 1.5rem;
