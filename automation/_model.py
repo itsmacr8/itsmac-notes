@@ -1,5 +1,7 @@
 section = 'b'
-questions = []
+questions = [
+
+]
 
 # NOTE: Example of how to use the question model:
 # For B Section questions
@@ -10,8 +12,26 @@ questions = []
 
 
 num_of_cols = 3
-table = []
+table = [
+
+]
 
 # NOTE: Example of how to use the table model:
-# table = ["definition^A^B","Time^Seconds^Minutes"]
+table = ["definition**A**B", "Time**Seconds**Minutes"]
 # num_of_cols = 3
+
+
+# highlight_list_items = [
+
+# ]
+
+# NOTE: Example of how to use the highlight list model:
+# highlight_list_items = ["Heading: Text", "Heading2: Text2"]
+
+
+paragraphs = [
+
+]
+
+# NOTE: Example of how to use the paragraph model:
+# paragraphs = ["Text", "Text2"]
