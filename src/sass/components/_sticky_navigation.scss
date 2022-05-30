@@ -1,0 +1,15 @@
+.navigation {
+    position: sticky;
+    top: 0;
+    transition: transform 250ms ease-in-out;
+
+    // If you don't want the scrolling sticky navigation feature, remove below rules. Sticky navigation will still work without scrolling sticky effect.
+    &.scroll-up,
+    nav:focus-within {
+        transform: translateY(0);
+    }
+
+    &.scroll-down {
+        transform: translateY(-100%);
+    }
+}
