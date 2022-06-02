@@ -5,16 +5,17 @@ filename = '_populate.html'
 filepath = os.path.join(dirpath, filename).replace("\\", "/")
 
 
-input_text = 'Type "T" for Table Model or "Q" for Question Model or "H" for Highlight List Model or "P" for Paragraph Model.\n'
-# populate_model = 'h'
-populate_model = input(input_text).lower()
+input_text = input('Type "T" for Table Model or "Q" for Question Model or "H" for Highlight List Model or "P" for Paragraph Model.\n')
+# input_text = 'h'
+populate_model = input_text.lower()
 
 
 # NOTE: Question Model
 if populate_model == 'q':
     with open(filepath, mode="a", encoding="UTF-8") as file:
-        from _functions import populate_questions
-        populate_questions(file, id_num=1)
+        from _classes import Question_Model
+        question_model = Question_Model('c', 1)
+        question_model.populate_questions(file)
 
 # NOTE: Table Model
 elif populate_model == 't':

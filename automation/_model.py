@@ -1,4 +1,3 @@
-section = 'b'
 questions = [
 
 ]
@@ -21,9 +20,9 @@ table = ["definition**A**B", "Time**Seconds**Minutes"]
 # num_of_cols = 3
 
 
-# highlight_list_items = [
+highlight_list_items = [
 
-# ]
+]
 
 # NOTE: Example of how to use the highlight list model:
 # highlight_list_items = ["Heading: Text", "Heading2: Text2"]

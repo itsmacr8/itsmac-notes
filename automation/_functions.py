@@ -1,17 +1,5 @@
-def populate_questions(file, id_num):
-    """
-    *   Add questions from the questions list of model.py file according to the example.
-    *   Change the id_num from where you want to start the numbering of questions.
-    """
-    from _model import questions
-    from _partials import get_link_question
-    for question in questions:
-        link_question = get_link_question(id_num, question)
-        file.write(link_question)
-
-
 def populate_table(file):
-    """Add table data from table list of model.py file according to the example."""
+    """Add table data from table list of model.py."""
     from _model import table
     from _partials import get_row
     for data in table:
@@ -21,7 +9,7 @@ def populate_table(file):
 
 
 def populate_highlight_list(file):
-    """Highlight list item from highlight_list_items list of model.py file according to the example."""
+    """Highlight list item from highlight_list_items list of model.py file."""
     from _model import highlight_list_items
     from _partials import get_list_item
     for item in highlight_list_items:
@@ -30,7 +18,7 @@ def populate_highlight_list(file):
 
 
 def populate_paragraphs(file):
-    """Generate paragraph element from paragraphs list of model.py file according to the example."""
+    """Generate paragraph element from paragraphs list of model.py file."""
     from _model import paragraphs
     for paragraph in paragraphs:
         file.write(f'<p>{paragraph}</p>')
