@@ -13,3 +13,8 @@
         transform: translateY(-100%);
     }
 }
+
+// To add padding when user clicks on a link to scroll to a specific section.
+html {
+    scroll-padding-top: var(--scroll-padding, 50px);
+}

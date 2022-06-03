@@ -49,3 +49,7 @@ window.addEventListener('scroll', () => {
         throttle(handleNavScroll, 750);
     }
 });
+
+// To fix the navigation covering content on scroll when user clicks on a link to scroll to a specific section.
+const navigationHeight = nav.offsetHeight;
+document.documentElement.style.setProperty('--scroll-padding', `${navigationHeight}px`);
