@@ -86,6 +86,9 @@ $value in $fg-positions {
     @include layout-alignment($selector, $value, a, $property-variation: self);
 }
 
-.flex {
+.d-flex {
     display: flex;
+    justify-content: var(--justify-content, stretch);
+    align-items: var(--align-items, stretch);
+    flex-direction: (--direction, row);
 }

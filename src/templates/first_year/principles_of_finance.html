@@ -169,6 +169,198 @@
         </section>
         <section id="section-b" class="section-b">
             <h2 class="question-section">Section B</h2>
+            <article id="question-6" class="responsive-table">
+                <table class="table text-center">
+                    <caption>Rules of time value of money</caption>
+                    <tr>
+                        <th>Topic</th>
+                        <th>PV</th>
+                        <th>FV</th>
+                        <th>Problems</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Lump sum</td>
+                        <td>FV(1 + i)<sup>-n</sup></td>
+                        <td>PV(1 + i)<sup>n</sup></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>FV(1 + i/m)<sup>-(nm)</sup></td>
+                        <td>PV(1 + i/m)<sup>nm</sup></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Annuity</td>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i</span>
+                                </div>
+                                <div>{ 1 - (1 + i)<sup>-n</sup>}</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i</span>
+                                </div>
+                                <div>{ (1 + i)<sup>n</sup> -1 }</div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i/m</span>
+                                </div>
+                                <div>{ 1 - (1 + i/m)<sup>-(nm)</sup>}</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i/m</span>
+                                </div>
+                                <div>{ (1 + i/m)<sup>nm</sup> -1 }</div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Annuity Beginning</td>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i</span>
+                                </div>
+                                <div>[ 1 - {(1 + i)<sup>-n</sup>}] (1+i)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i</span>
+                                </div>
+                                <div>[ {(1 + i)<sup>n</sup>} -1 ] (1+i)</div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i/m</span>
+                                </div>
+                                <div>{ 1 - (1 + i/m)<sup>-(nm)</sup> }</div>
+                                <div class="mb-0 d-flex jc-center ai-center gap">
+                                    <div>(1+</div>
+                                    <div class="flex-column">
+                                        <span>i</span>
+                                        <span class="bt-1">m</span>
+                                    </div>
+                                    <div>)</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="table-data">
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i/m</span>
+                                </div>
+                                <div>{ (1 + i/m)<sup>nm</sup> -1 }</div>
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div>(1+</div>
+                                    <div class="flex-column">
+                                        <span>i</span>
+                                        <span class="bt-1">m</span>
+                                    </div>
+                                    <div>)</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Unequal</td>
+                        <td>
+                            <div class="finance-rule">
+                                <div>FV<sub>1</sub> (1 + i)<sup>-1</sup></div>
+                                <span>+</span>
+                                <div>FV<sub>2</sub> (1 + i)<sup>-2</sup></div>
+                                <span>+</span>
+                                <span>...</span>
+                                <span>+</span>
+                                <div>FV<sub>n</sub> (1 + i)<sup>-n</sup></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="finance-rule">
+                                <div>PV<sub>1</sub> (1 + i)<sup>n-1</sup></div>
+                                <span>+</span>
+                                <div>PV<sub>2</sub> (1 + i)<sup>n-2</sup></div>
+                                <span>+</span>
+                                <span>...</span>
+                                <span>+</span>
+                                <div>PV<sub>n</sub> (1 + i)<sup>n-n</sup></div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="finance-rule">
+                                <div>FV<sub>1</sub> (1 + i/m)<sup>-(1.m)</sup></div>
+                                <span>+</span>
+                                <div>FV<sub>2</sub> (1 + i/m)<sup>-(2.m)</sup></div>
+                                <span>+</span>
+                                <span>...</span>
+                                <span>+</span>
+                                <div>FV<sub>n</sub> (1 + i/m)<sup>-(n.m)</sup></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="finance-rule">
+                                <div>PV<sub>1</sub> (1 + i/m)<sup>(n-1)m</sup></div>
+                                <span>+</span>
+                                <div>PV<sub>2</sub> (1 + i/m)<sup>(n-2)m</sup></div>
+                                <span>+</span>
+                                <span>...</span>
+                                <span>+</span>
+                                <div>PV<sub>n</sub> (1 + i/m)<sup>(n-n)m</sup></div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Unequal Beginning</td>
+                        <td>---</td>
+                        <td>
+                            <div class="finance-rule">
+                                <div>PV<sub>1</sub> (1 + i)<sup>n</sup></div>
+                                <span>+</span>
+                                <div>PV<sub>2</sub> (1 + i)<sup>n-1</sup></div>
+                                <span>+</span>
+                                <span>...</span>
+                                <span>+</span>
+                                <div>PV<sub>n</sub> (1 + i)<sup>n-n+1</sup></div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+                <p>Value of m: বার্ষিক(Annually) = 1, অর্ধবার্ষিক(Semiannually) = 2, ত্রৈমাসিক (Quarterly) = 4, দ্বিমাসিক (Bimonthly) = 6, মাসিক (Monthly) = 12, সাপ্তাহিক (Weekly) = 52, দৈনিক (Daily) = 365. Shortcut: Divide by i and multiply with n</p>
+            </article>
         </section>
         <section id="section-c" class="section-c">
             <h2 class="question-section">Section C</h2>
