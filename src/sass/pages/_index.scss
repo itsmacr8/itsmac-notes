@@ -1,6 +1,7 @@
 @forward './accounting';
 @forward './home';
 @forward './note';
+@forward './principles_of_finance';
 
 .page-layout {
     display: grid;
@@ -40,31 +41,7 @@ ol.custom-list {
     padding-left: 1.4rem;
 }
 
-.bt-1{
+.bt-1 {
     border-top: 1px solid;
     display: inline-block;
-}
-
-.finance-rule{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-    border: none;
-}
-
-.flex-column{
-    display: flex;
-    flex-direction: column;
-}
-
-.table-data{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-
-    & .gap{
-        gap: 5px;
-    }
 }

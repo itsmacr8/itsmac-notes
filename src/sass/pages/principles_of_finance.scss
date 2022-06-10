@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+.gap {
+    gap: 5px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// To fit the rules in one line when view in mobile landscape mode.
+.table {
+    width: 200vw;
+
+    @include mq(desktop-up) {
+        width: 100%;
+    }
+}
