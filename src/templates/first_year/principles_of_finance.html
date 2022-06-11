@@ -169,8 +169,8 @@
         </section>
         <section id="section-b" class="section-b">
             <h2 class="question-section">Section B</h2>
-            <article id="question-6" class="responsive-table">
-                <table class="table text-center">
+            <article class="responsive-table">
+                <table class="table text-center finance-rule-table">
                     <caption>Rules of time value of money</caption>
                     <tr>
                         <th>Topic</th>
@@ -179,109 +179,125 @@
                     </tr>
                     <tr>
                         <td rowspan="2">Lump sum</td>
-                        <td>FV (1 + i)<sup>-n</sup></td>
-                        <td>PV (1 + i)<sup>n</sup></td>
+                        <td><a href="#pv-1">FV (1 + i)<sup>-n</sup></a></td>
+                        <td><a href="#fv-1">PV (1 + i)<sup>n</sup></a></td>
                     </tr>
                     <tr>
-                        <td>FV (1 + i/m)<sup>-(nm)</sup></td>
-                        <td>PV (1 + i/m)<sup>nm</sup></td>
+                        <td><a href="#pv-2">FV (1 + i/m)<sup>-(nm)</sup></a></td>
+                        <td><a href="#fv-2">PV (1 + i/m)<sup>nm</sup></a></td>
                     </tr>
                     <tr>
                         <td rowspan="2">Annuity</td>
                         <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i</span>
-                                </div>
-                                <div> × [ 1 - (1 + i)<sup>-n</sup>]</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i</span>
-                                </div>
-                                <div> × [ (1 + i)<sup>n</sup> -1 ]</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i/m</span>
-                                </div>
-                                <div> × [ 1 - (1 + i/m)<sup>-(nm)</sup>]</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i/m</span>
-                                </div>
-                                <div> × [ (1 + i/m)<sup>nm</sup> -1 ]</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">Annuity Beginning</td>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i</span>
-                                </div>
-                                <div> × [ 1 - (1 + i)<sup>-n</sup>] × (1+i)</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i</span>
-                                </div>
-                                <div> × [ (1 + i)<sup>n</sup> -1 ] × (1+i)</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i/m</span>
-                                </div>
-                                <div> × [ 1 - (1 + i/m)<sup>-(nm)</sup> ] × </div>
-                                <div class="mb-0 d-flex jc-center ai-center gap">
-                                    <div>(1+</div>
-                                    <div class="flex-column">
-                                        <span>i</span>
-                                        <span class="bt-1">m</span>
-                                    </div>
-                                    <div>)</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex jc-center ai-center gap">
-                                <div class="flex-column">
-                                    <span>A</span>
-                                    <span class="bt-1">i/m</span>
-                                </div>
-                                <div> × [ (1 + i/m)<sup>nm</sup> -1 ] × </div>
+                            <a href="#pva-1">
                                 <div class="d-flex jc-center ai-center gap">
-                                    <div>(1+</div>
                                     <div class="flex-column">
-                                        <span>i</span>
-                                        <span class="bt-1">m</span>
+                                        <span>A</span>
+                                        <span class="bt-1">i</span>
                                     </div>
-                                    <div>)</div>
+                                    <div> × [ 1 - (1 + i)<sup>-n</sup>]</div>
                                 </div>
-                            </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#fva-1">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i</span>
+                                    </div>
+                                    <div> × [ (1 + i)<sup>n</sup> -1 ]</div>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#pva-2">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i/m</span>
+                                    </div>
+                                    <div> × [ 1 - (1 + i/m)<sup>-(nm)</sup>]</div>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="fva-2">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i/m</span>
+                                    </div>
+                                    <div> × [ (1 + i/m)<sup>nm</sup> -1 ]</div>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Annuity<sub>(Due)</sub> Beginning</td>
+                        <td>
+                            <a href="#pva-due-1">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i</span>
+                                    </div>
+                                    <div> × [ 1 - (1 + i)<sup>-n</sup>] × (1+i)</div>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#fva-due-1">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i</span>
+                                    </div>
+                                    <div> × [ (1 + i)<sup>n</sup> -1 ] × (1+i)</div>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#pva-due-2">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i/m</span>
+                                    </div>
+                                    <div> × [ 1 - (1 + i/m)<sup>-(nm)</sup> ] × </div>
+                                    <div class="mb-0 d-flex jc-center ai-center gap">
+                                        <div>(1+</div>
+                                        <div class="flex-column">
+                                            <span>i</span>
+                                            <span class="bt-1">m</span>
+                                        </div>
+                                        <div>)</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#fva-due-2">
+                                <div class="d-flex jc-center ai-center gap">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i/m</span>
+                                    </div>
+                                    <div> × [ (1 + i/m)<sup>nm</sup> -1 ] × </div>
+                                    <div class="d-flex jc-center ai-center gap">
+                                        <div>(1+</div>
+                                        <div class="flex-column">
+                                            <span>i</span>
+                                            <span class="bt-1">m</span>
+                                        </div>
+                                        <div>)</div>
+                                    </div>
+                                </div>
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -364,6 +380,168 @@
         </section>
         <section id="section-c" class="section-c">
             <h2 class="question-section">Section C</h2>
+            <article id="pv-1" class="mb-3">
+                <p class="individual-question">Your father committed you to present you with a car at your graduation after 5 years from now. The car will cost Tk 500,000 at that time. Your father wants to deposit a single amount into a fund. If the fund can earn 12% interest how much money should be deposited today?</p>
+                <div class="pl-2">
+                    <p class="mb-0">We know,</p>
+                    <p class="mb-0">PV = FV (1+i)<sup>-n</sup></p>
+                    <p class="mb-0">PV = 500,000 (1+.12)<sup>-5</sup></p>
+                    <p class="mb-0">PV = 500,000 × .56743</p>
+                    <p class="mb-0">PV = 2,83,715 Tk.</p>
+                </div>
+            </article>
+            <article id="pv-2" class="mb-3">
+                <p class="individual-question">In the hope of getting 2690 taka after 5 years, you want to save some money in the bank now. XYZ Bank has offered you a quarterly compounded annual interest rate of 10%.</p>
+                <div class="pl-2">
+                    <p class="mb-0">We know,</p>
+                    <p class="mb-0">PV = FV (1 + i/m)<sup>-(mn)</sup></p>
+                    <p class="mb-0">PV = 2,690 (1+.10/4)<sup>-(4×3)</sup></p>
+                    <p class="mb-0">PV = 2,690 (1+.025)<sup>-12</sup></p>
+                    <p class="mb-0">PV = 2,690 × .74356</p>
+                    <p class="mb-0">PV = 2,000 Tk.</p>
+                </div>
+            </article>
+            <article id="pva-1" class="mb-3">
+                <p class="individual-question">If you want to accept 700 Tk from an XYZ bank at the end of every year for 5 years, what is its current value at the rate of 8% interest per annum? How much money do you need to deposit in the bank now?</p>
+                <div class="pl-2">
+                    <div class="d-flex ai-center gap">
+                        <div>PVA =</div>
+                        <div class="d-flex gap text-center">
+                            <div class="flex-column">
+                                <span>A</span>
+                                <span class="bt-1">i</span>
+                            </div>
+                            <div> × [ 1 - (1 + i)<sup>-n</sup>]</div>
+                        </div>
+                    </div>
+                    <div class="d-flex ai-center gap">
+                        <div>PVA =</div>
+                        <div class="d-flex gap text-center">
+                            <div class="flex-column">
+                                <span>700</span>
+                                <span class="bt-1">.08</span>
+                            </div>
+                            <div> × [ 1 - (1 + .08)<sup>-5</sup>]</div>
+                        </div>
+                    </div>
+                    <div>PVA = 8750 × (1 - .68058) </div>
+                    <div>PVA = 8750 × .31942 </div>
+                    <div>PVA = 2795 Tk. </div>
+                </div>
+            </article>
+            <article id="pva-2" class="mb-3">
+                <p class="individual-question">By investing in XYZ Company ITS MAC will receive Tk. 500 per month for the next 5 years. If the interest rate of the money market is 10%, what amount should be invested now? <span class="highlight">We must use m because we will get money every month.</span></p>
+                <div class="pl-2">
+                    <div class="d-flex ai-center gap">
+                        <div>PVA =</div>
+                        <div class="d-flex gap text-center">
+                            <div class="flex-column">
+                                <span>A</span>
+                                <span class="bt-1">i/m</span>
+                            </div>
+                            <div> × [ 1 - (1 + i/m)<sup>-nm</sup>]</div>
+                        </div>
+                    </div>
+                    <div class="d-flex ai-center gap">
+                        <div>PVA =</div>
+                        <div class="d-flex gap text-center">
+                            <div class="flex-column">
+                                <span>500</span>
+                                <span class="bt-1">.10/12</span>
+                            </div>
+                            <div> × [ 1 - (1 + .10/12)<sup>-(5×12)</sup>]</div>
+                        </div>
+                    </div>
+                    <div class="d-flex ai-center gap">
+                        <div>PVA =</div>
+                        <div class="d-flex gap text-center">
+                            <div class="flex-column">
+                                <span>500</span>
+                                <span class="bt-1">.00833</span>
+                            </div>
+                            <div> × (1 - .60779)</div>
+                        </div>
+                    </div>
+                    <div>PVA = 60000 × .39221 </div>
+                    <div>PVA = 23533 Tk. </div>
+                </div>
+            </article>
+            <article id="fv-1" class="mb-3">
+                <p class="individual-question">ITS MAC deposits 2,83,715 Tk. today at 12% interest for 5 years. How much amount will he get after 5 years?</p>
+                <div class="pl-2">
+                    <p class="mb-0">We know,</p>
+                    <p class="mb-0">FV = PV (1+i)<sup>n</sup></p>
+                    <p class="mb-0">FV = 2,83,715 (1 + .12)<sup>5</sup></p>
+                    <p class="mb-0">FV = 2,83,715 × 1.76234</p>
+                    <p class="mb-0">FV = 500,003 Tk</p>
+                </div>
+            </article>
+            <article id="fv-2" class="mb-3">
+                <p class="individual-question">At the end of three years, how much is an initial Tk 2,000 deposit worth, assuming a quarterly compounded annual interest rate of 10%.</p>
+                <div class="pl-2">
+                    <p class="mb-0">We know,</p>
+                    <p class="mb-0">FV = PV (1 + i/m)<sup>mn</sup></p>
+                    <p class="mb-0">FV = 2000 (1+.10/4)<sup>4 × 3</sup></p>
+                    <p class="mb-0">FV = 2,000 (1+.025)<sup>12</sup></p>
+                    <p class="mb-0">FV = 2.000 × 1.34489</p>
+                    <p class="mb-0">FV = Tk. 2,690</p>
+                </div>
+            </article>
+            <article id="fva-1" class="mb-3">
+                <p class="individual-question">ITS MAC wants to know how much money he will get at the end of 5 years if he deposits 1,000 as savings in Dhaka Bank at the end of every year, on which interest will be paid at the rate of 7% per annum.</p>
+                <div class="pl-2">
+                    <div class="d-flex ai-center gap text-center">
+                        <div>FVA =</div>
+                        <div class="flex-column">
+                            <span>A</span>
+                            <span class="bt-1">i</span>
+                        </div>
+                        <div> × [ (1 + i)<sup>n</sup> -1 ]</div>
+                    </div>
+                    <div class="d-flex ai-center gap text-center">
+                        <div>FVA =</div>
+                        <div class="flex-column">
+                            <span>1000</span>
+                            <span class="bt-1">.07</span>
+                        </div>
+                        <div> × [ (1 + .07)<sup>5</sup> -1 ]</div>
+                    </div>
+                    <div>FVA = 14286 × (1.40255 - 1)</div>
+                    <div>FVA = 14286 × 14286 × .40255</div>
+                    <div>FVA = 5751 Tk.</div>
+                </div>
+            </article>
+            <article id="fva-2" class="mb-3">
+                <p class="individual-question">ITS MAC wants to know how much money he will get at the end of 5 years if he deposits 1,000 Tk. at a 7% interest rate in XYZ Bank at the end of every month.</p>
+                <div class="pl-2">
+                    <div class="d-flex ai-center gap text-center">
+                        <div>FVA =</div>
+                        <div class="flex-column">
+                            <span>A</span>
+                            <span class="bt-1">i/m</span>
+                        </div>
+                        <div> × [ (1 + i/m)<sup>nm</sup> -1 ]</div>
+                    </div>
+                    <div class="d-flex ai-center gap text-center">
+                        <div>FVA =</div>
+                        <div class="flex-column">
+                            <span>1000</span>
+                            <span class="bt-1">.07/12</span>
+                        </div>
+                        <div> × [ (1 + .07/12)<sup>5×12</sup> -1 ]</div>
+                    </div>
+                    <div class="d-flex ai-center gap text-center">
+                        <div>FVA =</div>
+                        <div class="flex-column">
+                            <span>1000</span>
+                            <span class="bt-1">.00583</span>
+                        </div>
+                        <div> × (1.41763 - 1) </div>
+                    </div>
+                    <div>FVA = 171527 × .41763</div>
+                    <div>FVA = 71635 Tk.</div>
+                </div>
+            </article>
         </section>
     </main>
     <footer id="footer"></footer>
