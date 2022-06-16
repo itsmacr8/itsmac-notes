@@ -380,6 +380,50 @@
         </section>
         <section id="section-c" class="section-c">
             <h2 class="question-section">Section C</h2>
+            <form class="mb-3" data-time="chapter-four-form">
+                <div class="flex-column mb-1">
+                    <label for="type">Which problem do you want to solve:</label>
+                    <select id="type" name="type" data-time="type">
+                        <option value="PV" selected>PV</option>
+                        <option value="PVA">PVA</option>
+                        <option value="PVA-Due">PVA Due</option>
+                        <option value="FV">FV</option>
+                        <option value="FVA">FVA</option>
+                        <option value="FVA-Due">FVA Due</option>
+                        <option value="A">A</option>
+                    </select>
+                </div>
+                <div class="flex-column mb-1" data-time="input-total-amount">
+                    <label for="total-amount">Enter PV/FV or PVA/FVA or PVA <sub>Due</sub> / FVA <sub>Due</sub> Value</label>
+                    <input type="text" id="total-amount" name="total-amount" placeholder="e.g. 10000" data-time="total-amount">
+                </div>
+                <div class="flex-column mb-1 d-none" data-time="input-annuity-amount">
+                    <label for="annuity">Annuity amount</label>
+                    <input type="text" id="annuity" name="annuity" data-time="annuity" placeholder="e.g. 10000">
+                </div>
+                <div class="flex-column mb-1">
+                    <label for="interest-rate">Interest Rate (Do not include % sign)</label>
+                    <input type="text" id="interest-rate" name="interest-rate" data-time="interest" placeholder="e.g. 10">
+                </div>
+                <div class="flex-column mb-1">
+                    <label for="year">Year</label>
+                    <input type="text" id="year" name="year" data-time="year" placeholder="e.g. 5">
+                </div>
+                <div class="flex-column mb-1">
+                    <label for="compound-frequency">Compound frequency</label>
+                    <select id="compound-frequency" data-time="compound-frequency" name="compound-frequency">
+                        <option value="1" selected>Annually / Yearly</option>
+                        <option value="2">Semi Annually / Half yearly</option>
+                        <option value="4">Quarterly</option>
+                        <option value="6">Bimonthly</option>
+                        <option value="12">Monthly</option>
+                        <option value="52">Weekly</option>
+                        <option value="365">Daily</option>
+                    </select>
+                </div>
+                <input type="submit" value="Find Answer">
+            </form>
+            <article class="mb-2" data-time="answer"></article>
             <article id="pv-1" class="mb-3">
                 <p class="individual-question">Your father committed you to present you with a car at your graduation after 5 years from now. The car will cost Tk 500,000 at that time. Your father wants to deposit a single amount into a fund. If the fund can earn 12% interest how much money should be deposited today?</p>
                 <div class="pl-2">
@@ -395,10 +439,10 @@
                 <div class="pl-2">
                     <p class="mb-0">We know,</p>
                     <p class="mb-0">PV = FV (1 + i/m)<sup>-(mn)</sup></p>
-                    <p class="mb-0">PV = 2,690 (1+.10/4)<sup>-(4×3)</sup></p>
-                    <p class="mb-0">PV = 2,690 (1+.025)<sup>-12</sup></p>
-                    <p class="mb-0">PV = 2,690 × .74356</p>
-                    <p class="mb-0">PV = 2,000 Tk.</p>
+                    <p class="mb-0">PV = 2,690 (1+.10/4)<sup>-(5×4)</sup></p>
+                    <p class="mb-0">PV = 2,690 (1+.025)<sup>-20</sup></p>
+                    <p class="mb-0">PV = 2,690 × .61027</p>
+                    <p class="mb-0">PV = 1642 Tk.</p>
                 </div>
             </article>
             <article id="pva-1" class="mb-3">
