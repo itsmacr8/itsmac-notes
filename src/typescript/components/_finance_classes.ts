@@ -17,8 +17,10 @@ class LumpSum {
         const TOTAL_INTEREST_UI: string = `${this.getInterestFormula()}${this.getYearFormula()}`;
         const FORMULA = `${this.baseTemplate(`${this.getTypeUI()} ${TOTAL_INTEREST_UI}`)}`
         const SET_VALUE = `${this.baseTemplate(`${this.value} ${this.set_value()}`)}`
-        const [CALCULATION, ANSWER]: string[] = this.calculate();
-        this.renderTemplate(`${FORMULA}${SET_VALUE}`, CALCULATION, ANSWER, renderArea)
+        const TOTAL_INTEREST: number = this.calcInterestWithPower()
+        const ANSWER_UI = this.calculateAnswerUI(this.value, TOTAL_INTEREST);
+        const ANSWER = this.calculateAnswer(this.value, TOTAL_INTEREST);
+        this.renderTemplate(`${FORMULA}${SET_VALUE}`, ANSWER_UI, String(ANSWER), renderArea)
     }
 
     private getTypeUI() {
@@ -31,21 +33,21 @@ class LumpSum {
 
     protected getInterestFormula() {
         let interest = '(1+i)'
-        if (this.IS_COMPOUND()) {
+        if (this.isCompound()) {
             interest = '(1+i/m)'
         }
         return interest
     }
 
     protected getYearFormula() {
-        let YEAR_UI: string = 'n';
+        let yearUI: string = 'n';
         if (this.isPresent()) {
-            YEAR_UI = '-n';
+            yearUI = '-n';
         }
-        if (this.IS_COMPOUND()) {
-            YEAR_UI = `${YEAR_UI}m`
+        if (this.isCompound()) {
+            yearUI = `${yearUI}m`
         }
-        return `<sup>${YEAR_UI}</sup>`
+        return `<sup>${yearUI}</sup>`
     }
 
     private set_value() {
@@ -53,7 +55,7 @@ class LumpSum {
     }
 
     protected getInterestValue() {
-        if (this.IS_COMPOUND()) {
+        if (this.isCompound()) {
             return `(1+${this.interest}/${this.compound})`
         }
         return `(1+${this.interest})`
@@ -64,7 +66,7 @@ class LumpSum {
         if (this.isPresent()) {
             yearValue = `-${yearValue}`;
         }
-        if (this.IS_COMPOUND()) {
+        if (this.isCompound()) {
             yearValue = `${this.year}×${this.compound}`
             if (this.isPresent()) {
                 yearValue = `-(${yearValue})`
@@ -73,15 +75,17 @@ class LumpSum {
         return `<sup>${yearValue}</sup>`
     }
 
-    private calculate() {
-        const TOTAL_INTEREST: number = this.calcInterestWithPower()
-        const ANSWER = Math.round(this.value * TOTAL_INTEREST);
-        return [`${this.value} × ${TOTAL_INTEREST}`, String(ANSWER)]
+    private calculateAnswer(totalAmount: number, interest: number): number {
+        return Math.round(totalAmount * interest)
+    }
+
+    private calculateAnswerUI(totalAmount: number, interest: number): string {
+        return `${totalAmount} × ${interest}`
     }
 
     protected calcInterest(): number {
         let interest: number = (1 + this.interest);
-        if (this.IS_COMPOUND()) {
+        if (this.isCompound()) {
             interest = (1 + (this.interest / this.compound));
         }
         return Number(interest.toFixed(5))
@@ -93,7 +97,7 @@ class LumpSum {
         if (this.isPresent()) {
             calcPower = this.calcInterest() ** -year
         }
-        if (this.IS_COMPOUND()) {
+        if (this.isCompound()) {
             year = year * this.compound;
             calcPower = this.calcInterest() ** (year);
             if (this.isPresent()) {
@@ -107,7 +111,7 @@ class LumpSum {
         return this.type.includes('PV') ? true : false;
     }
 
-    protected IS_COMPOUND(): boolean {
+    protected isCompound(): boolean {
         return this.compound > 1 ? true : false;
     }
 
@@ -115,13 +119,13 @@ class LumpSum {
         return `<div>${this.type} = ${value}</div>`
     }
 
-    protected renderTemplate(applyFormula: string, CALCULATION: string, ANSWER: string, renderArea: HTMLElement) {
+    protected renderTemplate(applyFormula: string, calculation: string, answer: string, renderArea: HTMLElement) {
         renderArea.innerHTML =
             `<h2>Answer is:</h2>
             <div class="pl-4">
                 ${applyFormula}
-                ${this.baseTemplate(CALCULATION)}
-                ${this.baseTemplate(ANSWER)}
+                ${this.baseTemplate(calculation)}
+                ${this.baseTemplate(answer)}
             </div>`
     }
 }
@@ -142,8 +146,8 @@ class Annuity extends LumpSum {
         const SET_VALUE = this.annuityTemplate(String(this.annuity), this.getAnnuityDivideValue(), this.getInterestRuleUI(this.getInterestValue(), this.getYearValue()))
 
         const [CALCULATED_ANNUITY_VALUE, CALCULATED_INTEREST_VALUE] = this.calcAnnuityAndInterest()
-        const { LINE_THREE_UI_VALUES, LINE_FOUR_UI_VALUE, IS_COMPOUND }: { LINE_THREE_UI_VALUES: string[]; LINE_FOUR_UI_VALUE: string; IS_COMPOUND: boolean; } = this.calcAnnuityAndInterestUI(CALCULATED_ANNUITY_VALUE);
-        const LINE_THREE: string = this.getLineThree(LINE_THREE_UI_VALUES, IS_COMPOUND);
+        const { lineThreeUIValues, LINE_FOUR_UI_VALUE, isCompound }: { lineThreeUIValues: string[]; LINE_FOUR_UI_VALUE: string; isCompound: boolean; } = this.calcAnnuityAndInterestUI(CALCULATED_ANNUITY_VALUE);
+        const LINE_THREE: string = this.getLineThree(lineThreeUIValues, isCompound);
         const LINE_FOUR = `${LINE_FOUR_UI_VALUE} × ${CALCULATED_INTEREST_VALUE}`
 
         const ANSWER: number = Math.round(CALCULATED_ANNUITY_VALUE * CALCULATED_INTEREST_VALUE);
@@ -167,45 +171,45 @@ class Annuity extends LumpSum {
 
         const LINE_FOUR_UI_VALUE: string = String(CALCULATED_ANNUITY_VALUE)
 
-        let IS_COMPOUND: boolean = false;
-        let LINE_THREE_UI_VALUES: string[] = [LINE_FOUR_UI_VALUE, calculatedInterestValueUI]
-        if (this.IS_COMPOUND()) {
-            IS_COMPOUND = true
+        let isCompound: boolean = false;
+        let lineThreeUIValues: string[] = [LINE_FOUR_UI_VALUE, calculatedInterestValueUI]
+        if (this.isCompound()) {
+            isCompound = true
             const annuity = String(this.annuity)
             const interestDivCompound = String(this.getDivideInterestWithCompound())
-            LINE_THREE_UI_VALUES = [annuity, interestDivCompound, `<div> × (1 - ${TOTAL_INTEREST})`]
+            lineThreeUIValues = [annuity, interestDivCompound, `<div> × (1 - ${TOTAL_INTEREST})`]
         }
-        return { LINE_THREE_UI_VALUES, LINE_FOUR_UI_VALUE, IS_COMPOUND };
+        return { lineThreeUIValues, LINE_FOUR_UI_VALUE, isCompound };
     }
 
     protected calcAnnuityAndInterest() {
-        let CALCULATED_ANNUITY_VALUE: number = this.getAnnuity();
-        if (this.IS_COMPOUND()) {
-            CALCULATED_ANNUITY_VALUE = Math.round(this.annuity / this.getDivideInterestWithCompound())
+        let calculatedAnnuityValue: number = this.getAnnuity();
+        if (this.isCompound()) {
+            calculatedAnnuityValue = Math.round(this.annuity / this.getDivideInterestWithCompound())
         }
 
-        let TOTAL_INTEREST: number = this.calcInterestWithPower();
-        let CALCULATED_INTEREST_VALUE: number = Number((TOTAL_INTEREST - 1).toFixed(5));
+        const TOTAL_INTEREST: number = this.calcInterestWithPower();
+        let calculatedInterestValue: number = Number((TOTAL_INTEREST - 1).toFixed(5));
         if (this.isPresent()) {
-            CALCULATED_INTEREST_VALUE = Number((1 - TOTAL_INTEREST).toFixed(5));
+            calculatedInterestValue = Number((1 - TOTAL_INTEREST).toFixed(5));
         }
-        return [CALCULATED_ANNUITY_VALUE, CALCULATED_INTEREST_VALUE];
+        return [calculatedAnnuityValue, calculatedInterestValue];
     }
 
     private getAnnuityDivideUI(): string {
         let annuityDivideUI: string = 'i'
-        if (this.IS_COMPOUND()) {
+        if (this.isCompound()) {
             annuityDivideUI = 'i/m'
         }
         return annuityDivideUI
     }
 
     protected getAnnuityDivideValue(): string {
-        let annuityDivideUI: string = `${this.interest}`
-        if (this.IS_COMPOUND()) {
-            annuityDivideUI = `${annuityDivideUI}/${this.compound}`
+        let annuityDivideValue: string = `${this.interest}`
+        if (this.isCompound()) {
+            annuityDivideValue = `${annuityDivideValue}/${this.compound}`
         }
-        return annuityDivideUI
+        return annuityDivideValue
     }
 
     protected getInterestRuleUI(interestUI: string, yearUI: string): string {
@@ -230,13 +234,13 @@ class Annuity extends LumpSum {
             lineThree = this.baseTemplate(`${lineThreeUIValues[0]} (${lineThreeUIValues[1]}) × ${this.calcInterest()}`);
         }
         if (isCompound) {
-            const annuity: string = lineThreeUIValues[0];
+            const ANNUITY: string = lineThreeUIValues[0];
             const ANNUITY_DIVIDE_UI: string = lineThreeUIValues[1];
-            let INTEREST_RULE_UI: string = `${lineThreeUIValues[2]}`;
+            let interestRuleUI: string = `${lineThreeUIValues[2]}`;
             if (due) {
-                INTEREST_RULE_UI = `${lineThreeUIValues[2]} × ${this.calcInterest()}`
+                interestRuleUI = `${lineThreeUIValues[2]} × ${this.calcInterest()}`
             }
-            lineThree = this.annuityTemplate(annuity, ANNUITY_DIVIDE_UI, INTEREST_RULE_UI);
+            lineThree = this.annuityTemplate(ANNUITY, ANNUITY_DIVIDE_UI, interestRuleUI);
         }
         return lineThree;
     }
@@ -271,8 +275,8 @@ class AnnuityDue extends Annuity {
         const SET_VALUE = this.annuityTemplate(String(this.annuity), this.getAnnuityDivideValue(), VALUE)
 
         const [CALCULATED_ANNUITY_VALUE, CALCULATED_INTEREST_VALUE] = this.calcAnnuityAndInterest()
-        const { LINE_THREE_UI_VALUES, LINE_FOUR_UI_VALUE, IS_COMPOUND }: { LINE_THREE_UI_VALUES: string[]; LINE_FOUR_UI_VALUE: string; IS_COMPOUND: boolean; } = this.calcAnnuityAndInterestUI(CALCULATED_ANNUITY_VALUE);
-        const LINE_THREE: string = this.getLineThree(LINE_THREE_UI_VALUES, IS_COMPOUND, true);
+        const { lineThreeUIValues, LINE_FOUR_UI_VALUE, isCompound }: { lineThreeUIValues: string[]; LINE_FOUR_UI_VALUE: string; isCompound: boolean; } = this.calcAnnuityAndInterestUI(CALCULATED_ANNUITY_VALUE);
+        const LINE_THREE: string = this.getLineThree(lineThreeUIValues, isCompound, true);
 
         const CALC_INTEREST = this.calcInterest()
         const LINE_FOUR = `${LINE_FOUR_UI_VALUE} × ${CALCULATED_INTEREST_VALUE} × ${CALC_INTEREST}`
