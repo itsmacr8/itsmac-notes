@@ -1,9 +1,9 @@
-import { LumpSum } from './_finance_classes';
+import { LumpSum, Annuity, AnnuityDue } from './_finance_classes';
 
-const timeValueOfMoneyForm = document.querySelector('[data-time="chapter-four-form"]') as HTMLFormElement;
-const answerContainer = document.querySelector('[data-time="answer"]') as HTMLElement;
+const TIME_VALUE_OF_MONEY_FORM = document.querySelector('[data-time="chapter-four-form"]') as HTMLFormElement;
+const ANSWER_CONTAINER = document.querySelector('[data-time="answer"]') as HTMLElement;
 
-const dom = {
+const DOM = {
     type: document.querySelector('[data-time="type"]') as HTMLOptionElement,
     totalAmount: document.querySelector('[data-time="total-amount"]') as HTMLInputElement,
     interest: document.querySelector('[data-time="interest"]') as HTMLInputElement,
@@ -12,46 +12,45 @@ const dom = {
     annuity: document.querySelector('[data-time="annuity"]') as HTMLInputElement,
 
     getType() {
-        return dom.type.value
+        return DOM.type.value
     }
 }
 
-dom.type?.addEventListener('change', () => {
-    const type = dom.getType()
-    const totalAmountInput = document.querySelector('[data-time="input-total-amount"]') as HTMLDivElement;
-    const annuityAmount = document.querySelector('[data-time="input-annuity-amount"]') as HTMLDivElement;
+DOM.type?.addEventListener('change', () => {
+    const TYPE = DOM.getType()
+    const TOTAL_AMOUNT_INPUT = document.querySelector('[data-time="input-total-amount"]') as HTMLDivElement;
+    const ANNUITY_AMOUNT = document.querySelector('[data-time="input-annuity-amount"]') as HTMLDivElement;
     hideTotalOrAnnuityAmountInput();
 
     function hideTotalOrAnnuityAmountInput() {
-        if (type === 'A' || type === 'PV' || type === 'FV') {
-            totalAmountInput.classList.remove('d-none');
-            annuityAmount.classList.add('d-none');
+        if (TYPE === 'A' || TYPE === 'PV' || TYPE === 'FV') {
+            TOTAL_AMOUNT_INPUT.classList.remove('d-none');
+            ANNUITY_AMOUNT.classList.add('d-none');
         } else {
-            totalAmountInput.classList.add('d-none');
-            annuityAmount.classList.remove('d-none');
+            TOTAL_AMOUNT_INPUT.classList.add('d-none');
+            ANNUITY_AMOUNT.classList.remove('d-none');
         }
     }
 });
 
-timeValueOfMoneyForm?.addEventListener('submit', (event) => {
+TIME_VALUE_OF_MONEY_FORM?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const type: string = dom.getType();
-    const totalAmount: number = Number(dom.totalAmount.value);
-    const interest: number = Number(dom.interest.value);
-    const year: number = Number(dom.year.value);
-    const compound: number = Number(dom.compound.value)
-    const annuity: number = Number(dom.annuity.value);
+    const TYPE: string = DOM.getType();
+    const TOTAL_AMOUNT: number = Number(DOM.totalAmount.value);
+    const INTEREST: number = Number(DOM.interest.value);
+    const YEAR: number = Number(DOM.year.value);
+    const COMPOUND: number = Number(DOM.compound.value)
+    const ANNUITY_VAL: number = Number(DOM.annuity.value);
 
-    const lumpSum = new LumpSum(type, totalAmount, year, interest, compound);
+    const LUMP_SUM = new LumpSum(TYPE, TOTAL_AMOUNT, YEAR, INTEREST, COMPOUND);
+    const ANNUITY = new Annuity(TYPE, TOTAL_AMOUNT, YEAR, INTEREST, COMPOUND, ANNUITY_VAL);
+    const ANNUITY_DUE = new AnnuityDue(TYPE, TOTAL_AMOUNT, YEAR, INTEREST, COMPOUND, ANNUITY_VAL);
 
-    if (type === 'PV' || type === 'FV') {
-        lumpSum.findAnswer(answerContainer);
-    } else if (type === 'A') {
-
-    } else if (type.includes('Due')) {
-
+    if (TYPE === 'PV' || TYPE === 'FV') {
+        LUMP_SUM.findAnswer(ANSWER_CONTAINER);
+    } else if (TYPE.includes('Due')) {
+        ANNUITY_DUE.findAnswer(ANSWER_CONTAINER);
     } else {
-
+        ANNUITY.findAnswer(ANSWER_CONTAINER);
     }
 })
-
