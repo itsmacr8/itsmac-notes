@@ -386,15 +386,14 @@
                     <select id="type" name="type" data-time="type">
                         <option value="PV" selected>PV</option>
                         <option value="PVA">PVA</option>
-                        <option value="PVA-Due">PVA Due</option>
+                        <option value="PVA-Due">PVA Beginning</option>
                         <option value="FV">FV</option>
                         <option value="FVA">FVA</option>
-                        <option value="FVA-Due">FVA Due</option>
-                        <option value="A">A</option>
+                        <option value="FVA-Due">FVA Beginning</option>
                     </select>
                 </div>
                 <div class="flex-column mb-1" data-time="input-total-amount">
-                    <label for="total-amount">Enter PV/FV or PVA/FVA or PVA <sub>Due</sub> / FVA <sub>Due</sub> Value</label>
+                    <label for="total-amount">Enter present value or future value</label>
                     <input type="text" id="total-amount" name="total-amount" placeholder="e.g. 10000" data-time="total-amount">
                 </div>
                 <div class="flex-column mb-1 d-none" data-time="input-annuity-amount">
