@@ -392,24 +392,20 @@
                         <option value="FVA-Due">FVA Beginning</option>
                     </select>
                 </div>
-                <div class="flex-column mb-1" data-time="input-total-amount">
-                    <label for="total-amount">Enter present value or future value</label>
-                    <input type="text" id="total-amount" name="total-amount" placeholder="e.g. 10000" data-time="total-amount">
-                </div>
-                <div class="flex-column mb-1 d-none" data-time="input-annuity-amount">
-                    <label for="annuity">Annuity amount</label>
-                    <input type="text" id="annuity" name="annuity" data-time="annuity" placeholder="e.g. 10000">
+                <div class="flex-column mb-1">
+                    <label for="total-amount" data-time="input-total-amount">Enter present value or future value</label>
+                    <input type="text" id="total-amount" name="total-amount" placeholder="e.g. 10000 or 10,000" data-time="total-amount">
                 </div>
                 <div class="flex-column mb-1">
-                    <label for="interest-rate">Interest Rate (Do not include % sign)</label>
+                    <label for="interest-rate">Enter interest Rate (Do not include % sign)</label>
                     <input type="text" id="interest-rate" name="interest-rate" data-time="interest" placeholder="e.g. 10">
                 </div>
                 <div class="flex-column mb-1">
-                    <label for="year">Year</label>
+                    <label for="year">Enter Year</label>
                     <input type="text" id="year" name="year" data-time="year" placeholder="e.g. 5">
                 </div>
                 <div class="flex-column mb-1">
-                    <label for="compound-frequency">Compound frequency</label>
+                    <label for="compound-frequency">Enter Compound frequency</label>
                     <select id="compound-frequency" data-time="compound-frequency" name="compound-frequency">
                         <option value="1" selected>Annually / Yearly</option>
                         <option value="2">Semi Annually / Half yearly</option>

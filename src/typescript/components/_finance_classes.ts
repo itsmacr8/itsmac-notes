@@ -1,13 +1,13 @@
 class LumpSum {
     type: string
-    value: number
+    amount: string
     year: number
     interest: number
     compound: number
 
-    constructor(type: string, value: number, year: number, interest: number, compound: number) {
+    constructor(type: string, amount: string, year: number, interest: number, compound: number) {
         this.type = type;
-        this.value = value;
+        this.amount = amount;
         this.year = year;
         this.interest = interest / 100;
         this.compound = compound;
@@ -16,11 +16,11 @@ class LumpSum {
     findAnswer(renderArea: HTMLElement): void {
         const TOTAL_INTEREST_UI: string = `${this.getInterestFormula()}${this.getYearFormula()}`;
         const FORMULA = `${this.baseTemplate(`${this.getTypeUI()} ${TOTAL_INTEREST_UI}`)}`
-        const SET_VALUE = `${this.baseTemplate(`${this.value} ${this.setValue()}`)}`
+        const SET_VALUE = `${this.baseTemplate(`${this.amount} ${this.setValue()}`)}`
         const TOTAL_INTEREST: number = this.calcInterestWithPower()
-        const ANSWER_UI = this.calculateAnswerUI(this.value, TOTAL_INTEREST);
-        const ANSWER = Math.round(this.value * TOTAL_INTEREST)
-        this.renderTemplate(`${FORMULA}${SET_VALUE}`, ANSWER_UI, String(ANSWER), renderArea)
+        const ANSWER_UI = this.calculateAnswerUI(this.amount, TOTAL_INTEREST);
+        const ANSWER = Math.round(Number(this.amount.replaceAll(',', '')) * TOTAL_INTEREST)
+        this.renderTemplate(`${FORMULA}${SET_VALUE}`, ANSWER_UI, `${ANSWER.toLocaleString('en-IN')} Tk.`, renderArea)
     }
 
     private getTypeUI() {
@@ -75,7 +75,7 @@ class LumpSum {
         return `<sup>${yearValue}</sup>`
     }
 
-    protected calculateAnswerUI(totalAmount: number, interest: number): string {
+    protected calculateAnswerUI(totalAmount: string, interest: number): string {
         return `${totalAmount} × ${interest}`
     }
 
@@ -89,15 +89,16 @@ class LumpSum {
 
     protected calcInterestWithPower(): number {
         let year: number = this.year;
-        let calcPower: number = this.calcInterest() ** year
+        const INTEREST: number = this.calcInterest();
+        let calcPower: number = INTEREST ** year
         if (this.isPresent()) {
-            calcPower = this.calcInterest() ** -year
+            calcPower = INTEREST ** -year
         }
         if (this.isCompound()) {
             year = year * this.compound;
-            calcPower = this.calcInterest() ** (year);
+            calcPower = INTEREST ** (year);
             if (this.isPresent()) {
-                calcPower = this.calcInterest() ** -(year);
+                calcPower = INTEREST ** -(year);
             }
         }
         return Number(calcPower.toFixed(5))
@@ -129,10 +130,8 @@ class LumpSum {
 
 class Annuity extends LumpSum {
 
-    annuity: number
-    constructor(type: string, value: number, year: number, interest: number, compound: number, annuity: number) {
-        super(type, value, year, interest, compound);
-        this.annuity = annuity
+    constructor(type: string, amount: string, year: number, interest: number, compound: number) {
+        super(type, amount, year, interest, compound);
     }
 
     findAnswer(renderArea: HTMLElement): void {
@@ -145,7 +144,7 @@ class Annuity extends LumpSum {
         const LINE_FOUR = this.getLineFour()
         const ANSWER: number = this.calculateAnswer();
 
-        this.renderTemplate(`${FORMULA}${SET_VALUE}${LINE_THREE}`, `${LINE_FOUR}`, String(ANSWER), renderArea)
+        this.renderTemplate(`${FORMULA}${SET_VALUE}${LINE_THREE}`, `${LINE_FOUR}`, `${ANSWER.toLocaleString('en-IN')} Tk.`, renderArea)
     }
 
     protected formula() {
@@ -162,12 +161,11 @@ class Annuity extends LumpSum {
         if (this.isPresent()) {
             calculatedInterestValueUI = `1 - ${TOTAL_INTEREST}`;
         }
-
         let isCompound: boolean = false;
-        let lineThreeUIValues: string[] = [String(CALCULATED_ANNUITY_VALUE), calculatedInterestValueUI]
+        let lineThreeUIValues: string[] = [CALCULATED_ANNUITY_VALUE.toLocaleString('en-IN'), calculatedInterestValueUI]
         if (this.isCompound()) {
             isCompound = true
-            const annuity = String(this.annuity)
+            const annuity = this.amount
             const interestDivCompound = String(this.getDivideInterestWithCompound())
             lineThreeUIValues = [annuity, interestDivCompound, `<div> × (1 - ${TOTAL_INTEREST})`]
         }
@@ -175,17 +173,17 @@ class Annuity extends LumpSum {
     }
 
     private calcAnnuityAndInterest() {
-        let calculatedAnnuityValue: number = this.getAnnuity();
+        let calculatedAnnuityValue: number = this.getAnnuity(this.interest);
         if (this.isCompound()) {
-            calculatedAnnuityValue = Math.round(this.annuity / this.getDivideInterestWithCompound())
+            calculatedAnnuityValue = this.getAnnuity(this.getDivideInterestWithCompound())
         }
 
         const TOTAL_INTEREST: number = this.calcInterestWithPower();
-        let calculatedInterestValue: number = Number((TOTAL_INTEREST - 1).toFixed(5));
+        let calculatedInterestValue: number = (TOTAL_INTEREST - 1);
         if (this.isPresent()) {
-            calculatedInterestValue = Number((1 - TOTAL_INTEREST).toFixed(5));
+            calculatedInterestValue = (1 - TOTAL_INTEREST);
         }
-        return [calculatedAnnuityValue, calculatedInterestValue];
+        return [calculatedAnnuityValue, Number(calculatedInterestValue.toFixed(5))];
     }
 
     private getAnnuityDivideUI(): string {
@@ -212,8 +210,8 @@ class Annuity extends LumpSum {
         return interestRuleUI
     }
 
-    private getAnnuity(): number {
-        return Math.round(this.annuity / this.interest)
+    private getAnnuity(divideAnnuity: number): number {
+        return Math.round(Number(this.amount.replaceAll(',', '')) / divideAnnuity)
     }
 
     private getDivideInterestWithCompound(): number {
@@ -225,7 +223,7 @@ class Annuity extends LumpSum {
     }
 
     protected setAnnuityValue(interestRuleUI: string): string {
-        return this.annuityTemplate(String(this.annuity), this.getAnnuityDivideValue(), interestRuleUI)
+        return this.annuityTemplate(this.amount, this.getAnnuityDivideValue(), interestRuleUI)
     }
 
     protected getLineThree(due?: boolean) {
@@ -251,7 +249,7 @@ class Annuity extends LumpSum {
 
     protected getLineFour(): string {
         const [CALCULATED_ANNUITY_VALUE, CALCULATED_INTEREST_VALUE] = this.calcAnnuityAndInterest()
-        return this.calculateAnswerUI(CALCULATED_ANNUITY_VALUE, CALCULATED_INTEREST_VALUE)
+        return this.calculateAnswerUI(CALCULATED_ANNUITY_VALUE.toLocaleString('en-IN'), CALCULATED_INTEREST_VALUE)
     }
 
     protected calculateAnswer(): number {
@@ -275,8 +273,8 @@ class Annuity extends LumpSum {
 
 class AnnuityDue extends Annuity {
 
-    constructor(type: string, value: number, year: number, interest: number, compound: number, annuity: number) {
-        super(type, value, year, interest, compound, annuity);
+    constructor(type: string, amount: string, year: number, interest: number, compound: number) {
+        super(type, amount, year, interest, compound);
     }
 
     findAnswer(renderArea: HTMLElement): void {
@@ -294,7 +292,7 @@ class AnnuityDue extends Annuity {
         const LINE_FOUR = `${this.getLineFour()} × ${DUE_INTEREST}`
         const ANSWER = Math.round(this.calculateAnswer() * DUE_INTEREST)
 
-        this.renderTemplate(`${FORMULA}${SET_VALUE}${LINE_THREE}`, `${LINE_FOUR}`, String(ANSWER), renderArea)
+        this.renderTemplate(`${FORMULA}${SET_VALUE}${LINE_THREE}`, `${LINE_FOUR}`, ANSWER.toLocaleString('en-IN'), renderArea)
     }
 }
 
