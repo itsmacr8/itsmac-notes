@@ -10,5 +10,35 @@
     border: 1px solid var(--gray-light);
     appearance: none;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out;
+}
+
+.form {
+    display: block;
+
+    &__field {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        &>label {
+            display: block;
+            margin-bottom: 0.3125rem;
+        }
+
+        &>input,
+        &>select {
+            width: 100%;
+            padding: .625rem;
+            border-radius: 0.5rem;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease-in-out;
+            background-color: #fdfdfd;
+        }
+
+        &>input:focus,
+        select:focus {
+            outline: none;
+            border: 2px solid #5aa5be;
+        }
+    }
 }
