@@ -109,5 +109,8 @@ function setClassArguments(questionType: string) {
         instantiateClass(questionType, 'FVA-Due', '1,000', 5, 7, 1);
     } else if (questionType === 'fva-due-2') {
         instantiateClass(questionType, 'FVA-Due', '1,000', 5, 7, 12);
+    } else if (questionType !== 'time-value-of-money') {
+        const ANSWER_CONTAINER = document.querySelector(`[data-time='${questionType}']`) as HTMLElement;
+        ANSWER_CONTAINER.classList.toggle('d-none');
     }
 }

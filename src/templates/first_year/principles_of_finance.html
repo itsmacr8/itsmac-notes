@@ -498,111 +498,135 @@
                     <div class="d-none" data-time="fva-due-2"></div>
                     <button class="btn" data-time="fva-due-2-btn">Show answer</button>
                 </article>
+                <article id="pv-find-a" class="mb-2">
+                    <h2>Find annuity of Present value.</h2>
+                    <p class="individual-question">ITS MAC borrowed Tk. 6,000 at 6% interest <span class="highlight">p.a</span> from XYZ Bank. This loan has to be repaid in 20 annual installments. what will be the <span class="highlight">amount of each installment</span>?</p>
+                    <div class="d-none" data-time="pv-find-a">
+                        <h3>Answer is:</h3>
+                        <p class="mb-0">We know,</p>
+                        <div class="pl-4">
+                            <div class="d-flex ai-center gap">
+                                <div>PVA =</div>
+                                <div class="d-flex gap text-center">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">i</span>
+                                    </div>
+                                    <div> × [ 1 - (1 + i)<sup>-n</sup>]</div>
+                                </div>
+                            </div>
+                            <div class="d-flex ai-center gap">
+                                <div>6000 =</div>
+                                <div class="d-flex gap text-center">
+                                    <div class="flex-column">
+                                        <span>A</span>
+                                        <span class="bt-1">.06</span>
+                                    </div>
+                                    <div> × [ 1 - (1 + .06)<sup>-20</sup>]</div>
+                                </div>
+                            </div>
+                            <div>6000 × .06 = A × (1 - .31180) </div>
+                            <div>360 = A × .68820 </div>
+                            <div>A = 360/.68820 </div>
+                            <div>A = 523 Tk. </div>
+                        </div>
+                    </div>
+                    <button class="btn" data-time="pv-find-a-btn">Show answer</button>
+                </article>
+                <article id="fv-find-a" class="mb-2">
+                    <h2>Find annuity of Future value.</h2>
+                    <p class="individual-question">You have a plan to accumulate 12,00,000 Tk. 10 years from now for buying a car. You are deciding to deposit a <span class="highlight">certain amount of money</span> in a special account that will provide you with 9.5% interest <span class="highlight">per annum</span>. What will be your annual deposit at the <span class="highlight">beginning</span> of each year?</p>
+                    <div class="d-none" data-time="fv-find-a">
+                        <h3>Answer is:</h3>
+                        <p class="mb-0">We know,</p>
+                        <div class="pl-4">
+                            <div class="d-flex ai-center gap text-center">
+                                <div>FVA =</div>
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">i</span>
+                                </div>
+                                <div> × [ (1 + i)<sup>n</sup> -1 ] × (1+i)</div>
+                            </div>
+                            <div class="d-flex ai-center gap text-center">
+                                <div>12,00,000 =</div>
+                                <div class="flex-column">
+                                    <span>A</span>
+                                    <span class="bt-1">.095</span>
+                                </div>
+                                <div> × [ (1 + .095)<sup>10</sup> -1 ] × (1+.095)</div>
+                            </div>
+                            <div>12,00,000 × .095 = A ( 2.47823 -1 ) × 1.095</div>
+                            <div>114000 = A × 1.47823 × 1.095</div>
+                            <div>A = 114009/1.61866</div>
+                            <div>A = 70429 Tk.</div>
+                        </div>
+                    </div>
+                    <button class="btn" data-time="fv-find-a-btn">Show answer</button>
+                </article>
+                <article id="pvu-1" class="mb-2">
+                    <h2>Present value of unequal deposit</h2>
+                    <p class="individual-question">ITS MAC invested 12000 in a project. He is expecting Tk. 2000, Tk. 3000, Tk. 4000, Tk. 6000 and Tk. 8000 for the next five years. The opportunity cost is 12%. He wants to know the present value of future cash inflows.</p>
+                    <div class="d-none" data-time="pvu-1">
+                        <h3>Answer is:</h3>
+                        <p class="mb-0">We know,</p>
+                        <div class="pl-4">
+                            <div>PV  = FV<sub>1</sub> (1 + i)<sup>-n1</sup> + FV<sub>2</sub> (1 + i)<sup>-n2</sup> + ... + FV<sub>n</sub> (1 + i)<sup>-n</sup></div>
+                            <div>PV  = 2000 × (1+.12)<sup>-1</sup> + 3000 × (1+.12)<sup>-2</sup> + 4000 × (1+.12)<sup>-3</sup> + 6000 × (1+.12)<sup>-4</sup> + 8000 × (1+.12)<sup>-5</sup></div>
+                            <div>PV  = 1786 + 2392 + 2847 + 3813 + 4539</div>
+                            <div>PV  = 15376 Tk.</div>
+                        </div>
+                    </div>
+                    <button class="btn" data-time="pvu-1-btn">Show answer</button>
+                </article>
+                <article id="pv-def-annuity" class="mb-2">
+                    <h2>Present value of a deferred annuity</h2>
+                    <p class="individual-question">Exactly 4 years from now, ITS MAC will receive Tk. 20,000 each year for 5 years from ABC company. If the interest rate is 8% what is the present value of future receipts?</p>
+                    <div class="d-none" data-time="pv-def-annuity">
+                        <h3>Answer is:</h3>
+                        <p class="mb-0">We know,</p>
+                        <div class="pl-4">
+                            <div>PV  = FV<sub>1</sub> (1 + i)<sup>-n4</sup> + FV<sub>2</sub> (1 + i)<sup>-n5</sup> + ... + FV<sub>n</sub> (1 + i)<sup>-n</sup></div>
+                            <div>PV  = 20000 × (1+.08)<sup>-4</sup> + 20000 × (1+.08)<sup>-5</sup> + 20000 × (1+.08)<sup>-6</sup> + 20000 × (1+.08)<sup>-7</sup> + 20000 × (1+.08)<sup>-8</sup></div>
+                            <div>PV  = 14700 + 13612 + 12603 + 11670 + 10805</div>
+                            <div>PV  = 63390 Tk.</div>
+                        </div>
+                    </div>
+                    <button class="btn" data-time="pv-def-annuity-btn">Show answer</button>
+                </article>
+                <article id="fvu-1" class="mb-2">
+                    <h2>Future value of unequal deposit</h2>
+                    <p class="individual-question">ITS MAC will deposit Tk. 11,500, Tk. 14,000, Tk. 12,900, Tk. 16,000 and Tk. 18,000 respectively at 8% interest <span class="highlight">per annum</span> in XYZ Bank at the <span class="highlight">end</span> of every year for the next five years. He wants to know how much money he will get at the end of 5 years.</p>
+                    <div class="d-none" data-time="fvu-1">
+                        <h3>Answer is:</h3>
+                        <p class="mb-0">We know,</p>
+                        <div class="pl-4">
+                            <div>FV  = PV<sub>1</sub> (1 + i)<sub>n-1</sub> + PV<sub>2</sub> (1 + i)<sub>n-2</sub> + ... + PV<sub>n</sub> (1 + i)<sub>n-n</sub></div>
+                            <div>FV  = 11,500 × (1+.08)<sub>5-1</sub> + 14,000 × (1+.08)<sub>5-2</sub> + 12,900 × (1+.08)<sub>5-3</sub> + 16,000 × (1+.08)<sub>5-4</sub> + 18,000 × (1+.08)<sub>5-5</sub></div>
+                            <div>FV  = 11,500 × (1+.08)<sub>4</sub> + 14,000 × (1+.08)<sub>3</sub> + 12,900 × (1+.08)<sub>2</sub> + 16,000 × (1+.08)<sub>1</sub> + 18,000 × (1+.08)<sub>0</sub></div>
+                            <div>FV  = 15,646 + 17,636 + 15,047 + 17,280 + 18,000</div>
+                            <div>FV  = 83609 Tk.</div>
+                        </div>
+                    </div>
+                    <button class="btn" data-time="fvu-1-btn">Show answer</button>
+                </article>
+                <article id="fvu-beg" class="mb-2">
+                    <h2>Future value of unequal deposit beginning</h2>
+                    <p class="individual-question">ITS MAC will deposit Tk. 11,500, Tk. 14,000, Tk. 12,900, Tk. 16,000 and Tk. 18,000 and Tk. 18,000 respectively at 8% interest <span class="highlight">per annum</span> in Dhaka Bank at the <span class="highlight">beginning</span> of each year for the next five years. He wants to know how much money he will get in interest after 5 years.</p>
+                    <div class="d-none" data-time="fvu-beg">
+                        <h3>Answer is:</h3>
+                        <p class="mb-0">We know,</p>
+                        <div class="pl-4">
+                            <div>FV  = PV<sub>1</sub> (1 + i)<sup>n</sup> + PV<sub>2</sub> (1 + i)<sup>n-1</sup> + ... + PV<sub>n</sub> (1 + i)<sup>n-n+1</sup></div>
+                            <div>FV  = 11,500 × (1+.08)<sup>5</sup> + 14,000 × (1+.08)<sup>5-1</sup> + 12,900 × (1+.08)<sup>5-2</sup> + 16,000 × (1+.08)<sup>5-3</sup> + 18,000 × (1+.08)<sup>5-5+1</sup></div>
+                            <div>FV  = 11,500 × (1+.08)<sup>5</sup> + 14,000 × (1+.08)<sup>4</sup> + 12,900 × (1+.08)<sup>3</sup> + 16,000 × (1+.08)<sup>2</sup> + 18,000 × (1+.08)<sup>1</sup></div>
+                            <div>FV  = 16897 + 19047 + 16250 + 18662 + 19440</div>
+                            <div>FV  = 90296 Tk.</div>
+                        </div>
+                    </div>
+                    <button class="btn" data-time="fvu-beg-btn">Show answer</button>
+                </article>
             </section>
-            <article id="pv-find-a" class="mb-2">
-                <h2>Find annuity of Present value.</h2>
-                <p class="individual-question">ITS MAC borrowed Tk. 6,000 at 6% interest <span class="highlight">p.a</span> from XYZ Bank. This loan has to be repaid in 20 annual installments. what will be the <span class="highlight">amount of each installment</span>?</p>
-                <p class="mb-0">We know,</p>
-                <div class="pl-4">
-                    <div class="d-flex ai-center gap">
-                        <div>PVA =</div>
-                        <div class="d-flex gap text-center">
-                            <div class="flex-column">
-                                <span>A</span>
-                                <span class="bt-1">i</span>
-                            </div>
-                            <div> × [ 1 - (1 + i)<sup>-n</sup>]</div>
-                        </div>
-                    </div>
-                    <div class="d-flex ai-center gap">
-                        <div>6000 =</div>
-                        <div class="d-flex gap text-center">
-                            <div class="flex-column">
-                                <span>A</span>
-                                <span class="bt-1">.06</span>
-                            </div>
-                            <div> × [ 1 - (1 + .06)<sup>-20</sup>]</div>
-                        </div>
-                    </div>
-                    <div>6000 × .06 = A × (1 - .31180) </div>
-                    <div>360 = A × .68820 </div>
-                    <div>A = 360/.68820 </div>
-                    <div>A = 523 Tk. </div>
-                </div>
-            </article>
-            <article id="fv-find-a" class="mb-2">
-                <h2>Find annuity of Future value.</h2>
-                <p class="individual-question">You have a plan to accumulate 12,00,000 Tk. 10 years from now for buying a car. You are deciding to deposit a <span class="highlight">certain amount of money</span> in a special account that will provide you with 9.5% interest <span class="highlight">per annum</span>. What will be your annual deposit at the <span class="highlight">beginning</span> of each year?</p>
-                <p class="mb-0">We know,</p>
-                <div class="pl-4">
-                    <div class="d-flex ai-center gap text-center">
-                        <div>FVA =</div>
-                        <div class="flex-column">
-                            <span>A</span>
-                            <span class="bt-1">i</span>
-                        </div>
-                        <div> × [ (1 + i)<sup>n</sup> -1 ] × (1+i)</div>
-                    </div>
-                    <div class="d-flex ai-center gap text-center">
-                        <div>12,00,000 =</div>
-                        <div class="flex-column">
-                            <span>A</span>
-                            <span class="bt-1">.095</span>
-                        </div>
-                        <div> × [ (1 + .095)<sup>10</sup> -1 ] × (1+.095)</div>
-                    </div>
-                    <div>12,00,000 × .095 = A ( 2.47823 -1 ) × 1.095</div>
-                    <div>114000 = A × 1.47823 × 1.095</div>
-                    <div>A = 114009/1.61866</div>
-                    <div>A = 70429 Tk.</div>
-                </div>
-            </article>
-            <article id="pvu-1" class="mb-2">
-                <h2>Present value of unequal deposit</h2>
-                <p class="individual-question">ITS MAC invested 12000 in a project. He is expecting Tk. 2000, Tk. 3000, Tk. 4000, Tk. 6000 and Tk. 8000 for the next five years. The opportunity cost is 12%. He wants to know the present value of future cash inflows.</p>
-                <p class="mb-0">We know,</p>
-                <div class="pl-4">
-                    <div>PV  = FV<sub>1</sub> (1 + i)<sup>-n1</sup> + FV<sub>2</sub> (1 + i)<sup>-n2</sup> + ... + FV<sub>n</sub> (1 + i)<sup>-n</sup></div>
-                    <div>PV  = 2000 × (1+.12)<sup>-1</sup> + 3000 × (1+.12)<sup>-2</sup> + 4000 × (1+.12)<sup>-3</sup> + 6000 × (1+.12)<sup>-4</sup> + 8000 × (1+.12)<sup>-5</sup></div>
-                    <div>PV  = 1786 + 2392 + 2847 + 3813 + 4539</div>
-                    <div>PV  = 15376 Tk.</div>
-                </div>
-            </article>
-            <article id="pv-def-annuity" class="mb-2">
-                <h2>Present value of a deferred annuity</h2>
-                <p class="individual-question">Exactly 4 years from now, ITS MAC will receive Tk. 20,000 each year for 5 years from ABC company. If the interest rate is 8% what is the present value of future receipts?</p>
-                <p class="mb-0">We know,</p>
-                <div class="pl-4">
-                    <div>PV  = FV<sub>1</sub> (1 + i)<sup>-n4</sup> + FV<sub>2</sub> (1 + i)<sup>-n5</sup> + ... + FV<sub>n</sub> (1 + i)<sup>-n</sup></div>
-                    <div>PV  = 20000 × (1+.08)<sup>-4</sup> + 20000 × (1+.08)<sup>-5</sup> + 20000 × (1+.08)<sup>-6</sup> + 20000 × (1+.08)<sup>-7</sup> + 20000 × (1+.08)<sup>-8</sup></div>
-                    <div>PV  = 14700 + 13612 + 12603 + 11670 + 10805</div>
-                    <div>PV  = 63390 Tk.</div>
-                </div>
-            </article>
-            <article id="fvu-1" class="mb-2">
-                <h2>Future value of unequal deposit</h2>
-                <p class="individual-question">ITS MAC will deposit Tk. 11,500, Tk. 14,000, Tk. 12,900, Tk. 16,000 and Tk. 18,000 respectively at 8% interest <span class="highlight">per annum</span> in XYZ Bank at the <span class="highlight">end</span> of every year for the next five years. He wants to know how much money he will get at the end of 5 years.</p>
-                <p class="mb-0">We know,</p>
-                <div class="pl-4">
-                    <div>FV  = PV<sub>1</sub> (1 + i)<sub>n-1</sub> + PV<sub>2</sub> (1 + i)<sub>n-2</sub> + ... + PV<sub>n</sub> (1 + i)<sub>n-n</sub></div>
-                    <div>FV  = 11,500 × (1+.08)<sub>5-1</sub> + 14,000 × (1+.08)<sub>5-2</sub> + 12,900 × (1+.08)<sub>5-3</sub> + 16,000 × (1+.08)<sub>5-4</sub> + 18,000 × (1+.08)<sub>5-5</sub></div>
-                    <div>FV  = 11,500 × (1+.08)<sub>4</sub> + 14,000 × (1+.08)<sub>3</sub> + 12,900 × (1+.08)<sub>2</sub> + 16,000 × (1+.08)<sub>1</sub> + 18,000 × (1+.08)<sub>0</sub></div>
-                    <div>FV  = 15,646 + 17,636 + 15,047 + 17,280 + 18,000</div>
-                    <div>FV  = 83609 Tk.</div>
-                </div>
-            </article>
-            <article id="fvu-beg" class="mb-2">
-                <h2>Future value of unequal deposit beginning</h2>
-                <p class="individual-question">ITS MAC will deposit Tk. 11,500, Tk. 14,000, Tk. 12,900, Tk. 16,000 and Tk. 18,000 and Tk. 18,000 respectively at 8% interest <span class="highlight">per annum</span> in Dhaka Bank at the <span class="highlight">beginning</span> of each year for the next five years. He wants to know how much money he will get in interest after 5 years.</p>
-                <p class="mb-0">We know,</p>
-                <div class="pl-4">
-                    <div>FV  = PV<sub>1</sub> (1 + i)<sup>n</sup> + PV<sub>2</sub> (1 + i)<sup>n-1</sup> + ... + PV<sub>n</sub> (1 + i)<sup>n-n+1</sup></div>
-                    <div>FV  = 11,500 × (1+.08)<sup>5</sup> + 14,000 × (1+.08)<sup>5-1</sup> + 12,900 × (1+.08)<sup>5-2</sup> + 16,000 × (1+.08)<sup>5-3</sup> + 18,000 × (1+.08)<sup>5-5+1</sup></div>
-                    <div>FV  = 11,500 × (1+.08)<sup>5</sup> + 14,000 × (1+.08)<sup>4</sup> + 12,900 × (1+.08)<sup>3</sup> + 16,000 × (1+.08)<sup>2</sup> + 18,000 × (1+.08)<sup>1</sup></div>
-                    <div>FV  = 16897 + 19047 + 16250 + 18662 + 19440</div>
-                    <div>FV  = 90296 Tk.</div>
-                </div>
-            </article>
         </section>
     </main>
     <footer id="footer"></footer>
