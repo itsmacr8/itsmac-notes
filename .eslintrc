@@ -1,0 +1,34 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "airbnb-base",
+        "eslint:recommended",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    "rules": {
+        "import/extensions": "off",
+        "class-methods-use-this": "off",
+        "prefer-const": "off",
+        "no-restricted-syntax": "off",
+        "max-classes-per-file": "off",
+        "no-console": "off",
+        "no-useless-constructor": "off",
+        "indent": [
+            "error",
+            4
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 80,
+                "ignoreUrls": true,
+                "ignoreStrings": true
+            }
+        ]
+    }
+}

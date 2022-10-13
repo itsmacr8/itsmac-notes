@@ -1,0 +1,37 @@
+p {
+    margin-bottom: 1.5rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+td,
+th {
+    border: 1px solid;
+}
+
+th,
+td {
+    padding: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+ol.custom-list {
+    list-style-type: decimal;
+    padding-left: 1.4rem;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-rows: max-content max-content auto max-content;
+
+    & .back-to-top {
+        display: none;
+    }
+}

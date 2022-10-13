@@ -5,14 +5,22 @@ const isCSS1Compat: boolean = (document.compatMode || '') === 'CSS1Compat';
 let previousScrollPosition: number = 0;
 let throttleTimer: boolean;
 
+function getScrolledPosition(): number {
+    const CSS1Compat = isCSS1Compat
+        ? document.documentElement.scrollTop
+        : document.body.scrollTop;
+    return supportPageOffset ? window.pageYOffset : CSS1Compat;
+}
 
 const isScrollingDown = (): boolean => {
     const scrolledPosition = getScrolledPosition();
-    const isScrollingDown: boolean = true ? scrolledPosition > previousScrollPosition : false;
+    const isScrollDown: boolean = scrolledPosition > previousScrollPosition;
 
-    // Temporarily solution to fix the issue with the sticky navbar when clicking on the hamburger menu to show the navbar links on tablet and mobile devices. 100 is a random number and it works fine.
+    // Temporarily solution to fix the issue with the sticky navbar when
+    // clicking on the hamburger menu to show the navbar links on tablet and
+    // mobile devices. 100 is a random number and it works fine.
     previousScrollPosition = scrolledPosition + 100;
-    return isScrollingDown;
+    return isScrollDown;
 };
 
 const handleNavScroll = () => {
@@ -35,14 +43,6 @@ const throttle = (callback: Function, time: number) => {
     }, time);
 };
 
-function getScrolledPosition(): number {
-    return supportPageOffset
-        ? window.pageYOffset
-        : isCSS1Compat
-            ? document.documentElement.scrollTop
-            : document.body.scrollTop;
-}
-
 const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 window.addEventListener('scroll', () => {
     if (mediaQuery && !mediaQuery.matches) {
@@ -50,6 +50,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// To fix the navigation covering content on scroll when user clicks on a link to scroll to a specific section.
+// To fix the navigation covering content on scroll when user
+// clicks on a link to scroll to a specific section.
 const navigationHeight = nav.offsetHeight;
 document.documentElement.style.setProperty('--scroll-padding', `${navigationHeight}px`);
