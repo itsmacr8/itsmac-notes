@@ -1,29 +1,40 @@
-class Question_Model:
-    """
-    *   Change the section variable to 'b' or 'c' accordingly.
-    *   Change the id_num from where you want to start the numbering of questions.
-    """
+from _utils import write_to_file, is_last_item
 
-    def __init__(self, section, id_num) -> None:
-        self.section = section
-        self.id_num = id_num
 
-    def populate_questions(self, file):
-        """Add questions from the questions list of model.py."""
-        from _model import questions
-        for question in questions:
-            link_question = self.get_link_question(question)
-            file.write(link_question)
+class Highlight_List:
 
-    def get_link_question(self, question):
-        """Get question and make it a list item as well as add id number to it."""
-        link = '#question-' if self.section == 'b' else '#question-sc-'
-        if len(question) > 2:
-            link_question = f'<li class="individual-question"><a href="{link}{self.id_num}">{question}</a></li>'
-            self.id_num += 1
-            return link_question
-        question_a = question[0].strip()
-        question_b = question[1].strip()
-        link_question = f'<li class="individual-question"><ul><li><a href="{link}{self.id_num}">{question_a}</a></li><li><a href="{link}{self.id_num+1}">{question_b}</a></li></ul></li>'
-        self.id_num += 2
-        return link_question
+    def populate_highlight_list(self, file):
+        """Highlight list item from highlight_list_items list of model.py file."""
+        from _model import highlight_list_items
+        write_to_file(highlight_list_items, self, file)
+
+    def get_list_item(self, list_items, list_item):
+        """Return list item markup if it is able to find them by splitting ':' or '=' sign from the provided text."""
+        try:
+            highlight_text = list_item.split(':')[0]
+            normal_text = list_item.split(':')[1]
+        except IndexError:
+            highlight_text = list_item.split(' =')[0]
+            normal_text = list_item.split(' =')[1]
+        li_tag = '<li>' if is_last_item(
+            list_items, list_item) else '<li class="mb-1">'
+        return f'{li_tag}<mark class="highlight">{highlight_text}:</mark>{normal_text}</li>'
+
+
+class List:
+
+    def populate_list(self, file):
+        """Generate list item from list_items list of model.py file."""
+        from _model import list_items
+        write_to_file(list_items, self, file)
+
+    def get_list_item(self, list_items, list_item):
+        try:
+            import re
+            text = re.split('\d+. ', list_item)[1]
+        except IndexError:
+            text = list_item
+
+        li_tag = '<li>' if is_last_item(
+            list_items, list_item) else '<li class="mb-1">'
+        return f'{li_tag}{text}</li>'
