@@ -18,6 +18,7 @@
         "max-classes-per-file": "off",
         "no-console": "off",
         "no-useless-constructor": "off",
+        "no-alert": "off",
         "indent": [
             "error",
             4
