@@ -1,4 +1,4 @@
-const cookieName: string = 'macNotesPass';
+const cookieName: string = 'MACNotesPass';
 const cookieValue: string = 'whoami';
 const expireDays: number = 1;
 const body = document.querySelector('body')! as HTMLBodyElement;
@@ -27,12 +27,12 @@ function getCookie() {
 function checkCookie() {
     let user = getCookie();
     if (user !== cookieValue) {
-        const userInput = prompt('Enter the password to access the website') || '';
+        const userInput = prompt('Enter the password to access the website.\nHint: The most important question one can ask oneself.') || '';
         if (userInput === cookieValue) {
             setOrUpdateCookie();
         } else {
             body.classList.add('pass-protection');
-            body.innerHTML = '<h1 class="text-center">Access Denied.</h1><p class="mb-0">You cannot access this website without password. Contact the owner of the website for the password.</p>';
+            body.innerHTML = '<h1 class="text-center">Access Denied.</h1><p class="text-center mb-0">You cannot access this website without password. Contact the owner of the website for the password.</p>';
         }
     }
 }
