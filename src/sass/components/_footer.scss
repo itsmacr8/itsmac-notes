@@ -6,6 +6,20 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &__link {
+        display: inline-block;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--tomato);
+        transition: transform 0.40s ease-in-out, margin-left 0.40s ease-in-out;
+
+        &:hover{
+            margin-left: 10px;
+            transform: scale(1.25);
+
+        }
+    }
 }
 
 .social {
@@ -17,10 +31,9 @@ footer {
     }
 
     &__link {
-        margin: 0 15px;
         color: inherit;
         text-decoration: none;
-        margin: 0 10px;
+        margin: 0 5px;
 
         &:hover {
             padding-bottom: 5px;
